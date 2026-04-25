@@ -3,7 +3,8 @@
   <entry>
     <title>HEXO-建站简介</title>
     <url>/posts/20260423202043-22508.html</url>
-    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>个人的学习博客，使用Hexo搭建，主题改用使用Next，并且部署在Github，日后可能会更换更快的网站。本站将用来记录学习、备份操作与记录感悟。</p>
+    <content><![CDATA[<p><img src="https://bing.img.run/1920x1080.php" alt="封面"></p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>个人的学习博客，使用Hexo搭建，主题改用使用Next，并且部署在Github，日后可能会更换更快的网站。本站将用来记录学习、备份操作与记录感悟。</p>
 <p>吸取之前的建站经验，尽量以简洁为主，少用图片以加快网站运行速度，多备份，并使用简单的页面布局。</p>
 <span id="more"></span>
 
@@ -89,6 +90,16 @@
 </blockquote>
 <p>打开主题配置文件，搜索 <code>Font Settings</code> 字体库设置板块，把字体库服务器 <code>host</code> 改为国内CDN库（<a href="https://kfufys.github.io/posts/fonts.useso.com">fonts.useso.com</a>）：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Uri of fonts host, e.g. https://fonts.googleapis.com (Default).</span><br><span class="line">#host:</span><br><span class="line">host: fonts.useso.com</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="添加博客背景图片"><a href="#添加博客背景图片" class="headerlink" title="添加博客背景图片"></a>添加博客背景图片</h2><ul>
+<li>将自己的背景图片命名为<code>background.png</code>保存在<code>\themes\next\source\images</code>路径下</li>
+<li>进入路径<code>\themes\next\source\css\_schemes</code>可见其中有四个文件<a href="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210204340.png"><img src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210204340.png" alt="四个文件">四个文件</a></li>
+<li>选择你自己的主题，本文以Gemini为例，使用记事本打开<code>index.styl</code></li>
+<li>复制下列代码在<code>Desktop layout styles.</code> 如图。</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 整体背景设置</span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>:<span class="built_in">url</span>(/images/background.png);<span class="comment">// 设定背景图片,images同处于source文件夹下</span></span><br><span class="line">	<span class="attribute">background-repeat</span>: no-repeat;<span class="comment">// 设定背景图片非重复填充</span></span><br><span class="line">	<span class="attribute">background-attachment</span>:fixed;<span class="comment">// 设置背景图片不随页面滚动</span></span><br><span class="line">	<span class="attribute">background-position</span>:<span class="number">50%</span> <span class="number">50%</span>;<span class="comment">// 设置背景图片位置</span></span><br><span class="line">	<span class="attribute">background-size</span>: cover// 设置保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置透明度</span></span><br><span class="line">.main-inner&#123;</span><br><span class="line">	<span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line">.header-inner&#123;</span><br><span class="line">	<span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">	<span class="attribute">z-index</span>: <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>教程</category>
@@ -96,6 +107,22 @@
       <tags>
         <tag>HEXO</tag>
         <tag>待整理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HEXO-部署的问题</title>
+    <url>/posts/20260425161201-58300.html</url>
+    <content><![CDATA[<p>部署到Github所遇到的一些问题。</p>
+<span id="more"></span>
+
+<h1 id="网站搭建"><a href="#网站搭建" class="headerlink" title="网站搭建"></a>网站搭建</h1><p>搭建Hexo个人网站教程见：<a href="https://hexo.io/zh-cn/docs/">文档 | Hexo</a></p>
+<h1 id="网站部署在Github"><a href="#网站部署在Github" class="headerlink" title="网站部署在Github"></a>网站部署在Github</h1><h2 id="Github设置"><a href="#Github设置" class="headerlink" title="Github设置"></a>Github设置</h2><ol>
+<li>创建一个Github账号，然后在github左侧点击<code>new</code>，创建一个新的仓库。</li>
+<li>仓库名称（Repository name)，必须是<code>用户名.github.io</code>。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>HEXO</tag>
       </tags>
   </entry>
   <entry>
@@ -210,22 +237,6 @@
         <tag>HEXO</tag>
         <tag>插件</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>测试文章</title>
-    <url>/posts/20260425000200-4131.html</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容">
-  <script id="hbeData" type="hbeData" data-hmacdigest="525fa695aadda417a3bea26be062557be3cdc119e23521fb98a9f0993e29bbc8">4630436162ade97ba2718b7d0c4b3b63b5797885a4f9ac0763a71c0dbf7135f70ec7c1784c72545e080cc594c48b93cc24d2eb78b3275344c20978a07be4d81d3615beb69ad1e928f45b5563c9b09df4289c610130ac4874828b507643f9f3ff7ea6a0a9f8ea6c76d1010d32c2714ad8f8c5194fc9f4c67ed3e6c1f51e531b1be5c4889709d25bc1351ba51e6f1b763788b00637fbc0a8e47f26e8c7cb79d43edfedd5c4ccf661f7317eda97125f26ed09440642cc6b8f32b10ccb0b9402f6ab15a47006392c95c462be78c61aa39b313c539dbc93a8cec2da1a9a4896329eac7ecfe352baa39ce37572203935a98f784417ac464e6d50378fb64cc1c9db3077cbe702535c9159ab101babdfc57599bfeb45e32926d86c9cc207d981ab9c1309d9fc4dddbd83165569fc5f3d6d96b89f70abbb9a38b545d5a715f626b824538b856b997b1cf7101d23791f08f57fc8da36fa25684294f8b27e1cbadbf78731ee88b500276b8f90ab1ea3528058c2dc38cd319c3a049fc27a19683f47091968933cf785c0ed013b4f59c94de16c4770ec943b3ee542131bf7239661ed417ec0992398765e21c47e2ed1e3a833f9ec1beb7b62e5d65784ba7a2db84a775ede61605e5c109922a49f95138c93d3651729b073aad39a9b1730327616a4f3dca29888d3536d2fa67c1fe5c60e22785be882316dbef6a20bbf8b1b98d4953f2f4f0d0739c7d4647b8a1a6be77014c1ad4c772bc0d2373d43bbddccb9af89a5ecfaf9d71c193c7820f7cc5e4a035b17238ef994beb44b164aa90d1ff015b18bff1a7a7c46c2d42d41a84dca06f73b30d9bc22459f0c0ee2b11a3f4ac4a0d2d07b13a7696296b91c63f007f891c1be578b38721531e0171228ea4a5ecd6aa21b3427358b5860c8b57794295931b7f81dac94d604de7f6032f246e717f2cf23e27359385c81e43b6e075fef9a590f82ea50ae97d9272a87698de566354ceef72ccc4cf4337663b6427cedee8468ca7b754774eeb545055408c8a04ec9dee51f773232d72953ce114cf201e7d7f2697cdab6ae7f99d85546f457139057bf59ef593e80f1307253465af475b1df9af13fe4c1138540e67db2a92906d8599f162b2e00974a0b3be917953471b74824c5bfa18ae72520b718ab6bf30226c3f27ac0243cf16b101be4d93707dda193b4460e3c0d3e3f7bb44b11b5b7e533fa7c1c04672c9bbae4ec3f9da6a378a07f76e052038bdeb7c61fa40f6d936e9c1c7be56c8d330f6bc867beaf8af7d1ee2247e5fd07b369f81ae6b2e18aadc1e96753880a73d41784a98800e19dde7a16a864618ca0b06e9dd437ff98e765720b881537acabd79fd5c995cce502ba4bd39888a4be7e22e51b3b09bcba32888686204022be2f0f488483915bc16ba20a8ad16a0eada6d08495eb0c147b3a391b35207291a7f4be66ebc11e1bfe9feea0a2dd4a72663ef4893a4b01e1bc5bde8f055a8e301ddd84af717e5f81062b939f4e910d2f6e4017bacd5bc1b8ea39867fd013b0ca9e3e4a59b2bf9919e61e3cd6037eeb945b37c7d0f86a76db97d413996a5c6fdc450096742c6f09dc995c2d4446ec14367d0b9e2c92da0c59a20e070bae27a4f67f24371f15acf1261381b9ccf442e2724ecb3f6c1673bfd2eedfe3b91ba577146dbbc0d1b866e0706ccb0fd1c8a23c448cd288bf9214d03e81bac8e90d11610447c93b3cc67546775c91adf147763f65e4c6b83b06f36a688654fa73ace92d622ed0729c74a88e900cc52db77f52098b5422f4760be82541d0f443e00f87e80884f9cb6e549a1bbb564c5dc5550b693ebade5ca76bd515811b994417c6cc635dd183247d664b</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好，这里需要密码。</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
   </entry>
   <entry>
     <title>HEXO-添加本地搜索</title>
