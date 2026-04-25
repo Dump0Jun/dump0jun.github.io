@@ -1,150 +1,275 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>MD-banner所用元素</title>
-      <link href="/posts/20260425005454-26208.html"/>
-      <url>/posts/20260425005454-26208.html</url>
-      
-        <content type="html"><![CDATA[<p>所有常用Banner元素</p><span id="more"></span><table><thead><tr><th>元素</th><th>值</th></tr></thead><tbody><tr><td>title</td><td>即文章的标题</td></tr><tr><td>date</td><td>文章创建的时间，由hexo自动创建</td></tr><tr><td>tags</td><td>标签，使用-隔断，例如“- 笔记”</td></tr><tr><td>categories</td><td>分类，大类区分</td></tr><tr><td>top</td><td>“true”：启用无序置顶排列。”1,2,…”：顺序置顶排列。</td></tr><tr><td>cover</td><td>banner所用封面</td></tr></tbody></table><p>加密文章所用的banner元素：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">password: 123456</span><br><span class="line">abstract: 这里有东西被加密了，需要输入密码查看哦。</span><br><span class="line">message: 您好，这里需要密码。</span><br><span class="line">wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。</span><br><span class="line">wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Markdown </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>HEXO-添加文章置顶</title>
-      <link href="/posts/20260425004955-57101.html"/>
-      <url>/posts/20260425004955-57101.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="文章置顶"><a href="#文章置顶" class="headerlink" title="文章置顶"></a>文章置顶</h1><p>顾名思义，置顶文章。</p><span id="more"></span><p>移除默认安装的插件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-generator-index --save</span><br></pre></td></tr></table></figure><p>安装新插件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-index-pin-top --save</span><br></pre></td></tr></table></figure><p>写需要置顶的文章时，在 Front-matter 区域，加上一行：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top: true</span><br></pre></td></tr></table></figure><blockquote><p><strong>如果置顶多篇，怎么控制顺序呢？</strong></p><p><strong>答</strong>：设置top的值（大的在前面）。</p></blockquote><p>例如（文章 b 会显示在文章 a 的前面）：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Post a.md</span><br><span class="line">title: XXX</span><br><span class="line">top: 1</span><br><span class="line"></span><br><span class="line"># Post b.md</span><br><span class="line">title: xxx</span><br><span class="line">top: 10</span><br></pre></td></tr></table></figure><h1 id="添加置顶图标"><a href="#添加置顶图标" class="headerlink" title="添加置顶图标"></a>添加置顶图标</h1><p>打开 <code>/themes/next/layout/_macro/post.njk</code> 文件，在 <code>&lt;div class=&quot;post-meta-container&quot;&gt;</code> 下方，插入如下代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if post.top %&#125;</span><br><span class="line">    &lt;i class=&quot;fa fa-thumb-tack&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;font color=7D26CD&gt;置顶&lt;/font&gt;</span><br><span class="line">    &lt;span class=&quot;post-meta-divider&quot;&gt;&lt;/span&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> HEXO </tag>
-            
-            <tag> 插件 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>HEXO-增加文章字数统计及阅读时长功能</title>
-      <link href="/posts/20260425003232-2293.html"/>
-      <url>/posts/20260425003232-2293.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="增加文章字数统计及阅读时长功能"><a href="#增加文章字数统计及阅读时长功能" class="headerlink" title="增加文章字数统计及阅读时长功能"></a>增加文章字数统计及阅读时长功能</h1><p>用于记录文章字数及计数阅读时长。</p><span id="more"></span><p>安装插件 <code>hexo-wordcount</code> ，执行以下命令：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure><p>在主题配置文件中搜索 <code>symbols_count_time</code>，修改成如下:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/next-theme/hexo-word-counter</span><br><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true</span><br><span class="line">  item_text_post: true # 文章字数统计</span><br><span class="line">  item_text_total: true # 站点总字数统计</span><br><span class="line">  # 平均单词长度（单词的计数）。默认值:4。CN≈2 EN≈5 俄文≈6</span><br><span class="line">  awl: 2</span><br><span class="line">  # 每分钟的单词。默认值:275。缓慢≈200 正常≈275 快≈350</span><br><span class="line">  wpm: 275</span><br></pre></td></tr></table></figure><p>如果安装完报如下提醒，还需安装eslint </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\hexo\blog&gt;npm install hexo-symbols-count-time --save</span><br><span class="line">npm WARN babel-eslint@10.0.1 requires a peer of eslint@&gt;= 4.12.1 but none is installed. You must install peer dependencies yourself.</span><br></pre></td></tr></table></figure><p>安装eslint</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install eslint --save</span><br></pre></td></tr></table></figure><p>在站点配置文件（_config.yml）添加以下配置：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true                # 文章字数统计</span><br><span class="line">  time: true                   # 文章阅读时长</span><br><span class="line">  total_symbols: true          # 站点总字数统计</span><br><span class="line">  total_time: true             # 站点总阅读时长</span><br><span class="line">  exclude_codeblock: false     # 排除代码字数统计</span><br></pre></td></tr></table></figure><p>在NexT主题配置中添加以下配置：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/theme-next/hexo-symbols-count-time</span><br><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true     # 是否另起一行（true的话不和发表时间等同一行）</span><br><span class="line">  item_text_post: true     # 首页文章统计数量前是否显示文字描述（本文字数、阅读时长）</span><br><span class="line">  item_text_total: false   # 页面底部统计数量前是否显示文字描述（站点总字数、站点阅读时长）</span><br><span class="line">  awl: 4                   # Average Word Length</span><br><span class="line">  wpm: 275                 # Words Per Minute（每分钟阅读词数）</span><br><span class="line">  suffix: mins</span><br></pre></td></tr></table></figure><blockquote><p>参考来源：<a href="https://blog.csdn.net/mqdxiaoxiao/article/details/93670772">Hexo博客NexT主题下添加字数统计和阅读时长_字数和阅读时长-CSDN博客</a></p></blockquote>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> HEXO </tag>
-            
-            <tag> 插件 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>测试文章</title>
-      <link href="/posts/20260425000200-4131.html"/>
-      <url>/posts/20260425000200-4131.html</url>
-      
-        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容">  <script id="hbeData" type="hbeData" data-hmacdigest="525fa695aadda417a3bea26be062557be3cdc119e23521fb98a9f0993e29bbc8">4630436162ade97ba2718b7d0c4b3b63b5797885a4f9ac0763a71c0dbf7135f70ec7c1784c72545e080cc594c48b93cc24d2eb78b3275344c20978a07be4d81d3615beb69ad1e928f45b5563c9b09df4289c610130ac4874828b507643f9f3ff7ea6a0a9f8ea6c76d1010d32c2714ad8f8c5194fc9f4c67ed3e6c1f51e531b1be5c4889709d25bc1351ba51e6f1b763788b00637fbc0a8e47f26e8c7cb79d43edfedd5c4ccf661f7317eda97125f26ed09440642cc6b8f32b10ccb0b9402f6ab15a47006392c95c462be78c61aa39b313c539dbc93a8cec2da1a9a4896329eac7ecfe352baa39ce37572203935a98f784417ac464e6d50378fb64cc1c9db3077cbe702535c9159ab101babdfc57599bfeb45e32926d86c9cc207d981ab9c1309d9fc4dddbd83165569fc5f3d6d96b89f70abbb9a38b545d5a715f626b824538b856b997b1cf7101d23791f08f57fc8da36fa25684294f8b27e1cbadbf78731ee88b500276b8f90ab1ea3528058c2dc38cd319c3a049fc27a19683f47091968933cf785c0ed013b4f59c94de16c4770ec943b3ee542131bf7239661ed417ec0992398765e21c47e2ed1e3a833f9ec1beb7b62e5d65784ba7a2db84a775ede61605e5c109922a49f95138c93d3651729b073aad39a9b1730327616a4f3dca29888d3536d2fa67c1fe5c60e22785be882316dbef6a20bbf8b1b98d4953f2f4f0d0739c7d4647b8a1a6be77014c1ad4c772bc0d2373d43bbddccb9af89a5ecfaf9d71c193c7820f7cc5e4a035b17238ef994beb44b164aa90d1ff015b18bff1a7a7c46c2d42d41a84dca06f73b30d9bc22459f0c0ee2b11a3f4ac4a0d2d07b13a7696296b91c63f007f891c1be578b38721531e0171228ea4a5ecd6aa21b3427358b5860c8b57794295931b7f81dac94d604de7f6032f246e717f2cf23e27359385c81e43b6e075fef9a590f82ea50ae97d9272a87698de566354ceef72ccc4cf4337663b6427cedee8468ca7b754774eeb545055408c8a04ec9dee51f773232d72953ce114cf201e7d7f2697cdab6ae7f99d85546f457139057bf59ef593e80f1307253465af475b1df9af13fe4c1138540e67db2a92906d8599f162b2e00974a0b3be917953471b74824c5bfa18ae72520b718ab6bf30226c3f27ac0243cf16b101be4d93707dda193b4460e3c0d3e3f7bb44b11b5b7e533fa7c1c04672c9bbae4ec3f9da6a378a07f76e052038bdeb7c61fa40f6d936e9c1c7be56c8d330f6bc867beaf8af7d1ee2247e5fd07b369f81ae6b2e18aadc1e96753880a73d41784a98800e19dde7a16a864618ca0b06e9dd437ff98e765720b881537acabd79fd5c995cce502ba4bd39888a4be7e22e51b3b09bcba32888686204022be2f0f488483915bc16ba20a8ad16a0eada6d08495eb0c147b3a391b35207291a7f4be66ebc11e1bfe9feea0a2dd4a72663ef4893a4b01e1bc5bde8f055a8e301ddd84af717e5f81062b939f4e910d2f6e4017bacd5bc1b8ea39867fd013b0ca9e3e4a59b2bf9919e61e3cd6037eeb945b37c7d0f86a76db97d413996a5c6fdc450096742c6f09dc995c2d4446ec14367d0b9e2c92da0c59a20e070bae27a4f67f24371f15acf1261381b9ccf442e2724ecb3f6c1673bfd2eedfe3b91ba577146dbbc0d1b866e0706ccb0fd1c8a23c448cd288bf9214d03e81bac8e90d11610447c93b3cc67546775c91adf147763f65e4c6b83b06f36a688654fa73ace92d622ed0729c74a88e900cc52db77f52098b5422f4760be82541d0f443e00f87e80884f9cb6e549a1bbb564c5dc5550b693ebade5ca76bd515811b994417c6cc635dd183247d664b</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好，这里需要密码。</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>HEXO-添加本地搜索</title>
-      <link href="/posts/20260424235141-59610.html"/>
-      <url>/posts/20260424235141-59610.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="Local-Search-本地搜索"><a href="#Local-Search-本地搜索" class="headerlink" title="Local Search 本地搜索"></a>Local Search 本地搜索</h2><p>在左侧侧边栏添加搜索功能。</p><span id="more"></span><p>安装插件 <code>hexo-generator-searchdb</code>，在Blog根目录运行git bush，输入以下代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure><p>修改站点全局配置文件(_config.yml)，添加以下内容到任意位置。</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#本地搜索</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure><p>然后在主题配置文件(_config_next.yml)，修改local_search的enable为true，启用本地搜索。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Local search</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> HEXO </tag>
-            
-            <tag> 插件 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>HEXO-为文章添加加密访问</title>
-      <link href="/posts/20260424234943-7940.html"/>
-      <url>/posts/20260424234943-7940.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="文章的加密访问"><a href="#文章的加密访问" class="headerlink" title="文章的加密访问"></a>文章的加密访问</h1><p>有时，我们希望记录一些个人笔记或者对嘉豪时期的文章（但是不舍得删除的）进行私密处理，这时候，密码加密是个不错的主意。</p><span id="more"></span><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>在博客根目录安装插件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-blog-encrypt</span><br></pre></td></tr></table></figure><p>安装完成后，在package.json文件的dependecies依赖中可以看到encrypt插件，证明安装成功。</p><p>配置hexo中的_config.yml文件，在文件末尾添加如下代码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 安全设置</span><br><span class="line">encrypt:</span><br><span class="line">  # 启用插件</span><br><span class="line">  enable: true</span><br><span class="line">  # 自定义加密相关设置</span><br><span class="line">  abstract: &quot;这里的内容加密了，需要密码哦。&quot;</span><br><span class="line">  message: &quot;请输入密码查看本文。&quot;</span><br><span class="line">  # 可以在这里设定特定标签对应的默认密码</span><br><span class="line">  tags:</span><br><span class="line">    - [name: &quot;encryptAsSecret&quot;, password: &quot;yoursecret&quot;]</span><br><span class="line">  # 错误消息设置</span><br><span class="line">  wrong_pass_message: &quot;密码错误，请重试。&quot;</span><br><span class="line">  wrong_hash_message: &quot;内容认证失败，但仍可尝试查看。&quot;</span><br><span class="line">  # 是否禁用日志记录</span><br><span class="line">  silent: false</span><br></pre></td></tr></table></figure><p>使用时需要在需要加密文章的头部banner中添加以下东西：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">title: ###</span><br><span class="line">date: XXXX-XX-XX XX:XX:XX</span><br><span class="line">password: mima 如果设为&quot;&quot;则为空</span><br><span class="line">abstract: 这里有东西被加密了，需要输入密码查看哦。</span><br><span class="line">message: 您好，这里需要密码。</span><br><span class="line">wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。</span><br><span class="line">wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容</span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> HEXO </tag>
-            
-            <tag> 插件 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>HEXO-建站简介</title>
-      <link href="/posts/20260423202043-22508.html"/>
-      <url>/posts/20260423202043-22508.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>个人的学习博客，使用Hexo搭建，主题改用使用Next，并且部署在Github，日后可能会更换更快的网站。本站将用来记录学习、备份操作与记录感悟。</p><p>吸取之前的建站经验，尽量以简洁为主，少用图片以加快网站运行速度，多备份，并使用简单的页面布局。</p><span id="more"></span><blockquote><p>NexT中文使用文档：<a href="https://theme-next.iissnan.com/">https://theme-next.iissnan.com/</a></p><p>参考来源：</p><p>【[馨客栈分享]使用Hexo博客搭建的个人博客，使用Next主题来进行优化改造】 <a href="https://www.bilibili.com/video/BV16W411t7mq/?p=16&share_source=copy_web&vd_source=57bb74376930424b7a2e91438825af1d">https://www.bilibili.com/video/BV16W411t7mq/?p=16&amp;share_source=copy_web&amp;vd_source=57bb74376930424b7a2e91438825af1d</a></p><p><a href="https://www.simon96.online/2018/10/12/hexo-tutorial/">【持续更新】最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析 | 遇见西门</a></p><p><a href="https://kfufys.github.io/posts/9aae07a1.html">Hexo-Next 主题个性化配置教程 | Smart Space</a></p></blockquote><h1 id="配置设置"><a href="#配置设置" class="headerlink" title="配置设置"></a>配置设置</h1><h2 id="设置主题语言为中文"><a href="#设置主题语言为中文" class="headerlink" title="设置主题语言为中文"></a>设置主题语言为中文</h2><p>在[博客根目录]中，将_config.yml文件中的language设置为<code>zh-CN</code></p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br></pre></td></tr></table></figure><h2 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h2><p>在[主题目录]中，修改主题目录下的_config.yml文件中的avatar选项。</p><p>例如：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://pic1.imgdb.cn/item/69e85afb361615f002f5dfd0.jpg</span></span><br></pre></td></tr></table></figure><p>此外，下面还有两个侧边栏设置，可以按需开启：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://pic1.imgdb.cn/item/69e85afb361615f002f5dfd0.jpg</span></span><br><span class="line">  <span class="attr">rounded:</span> <span class="literal">false</span>    <span class="comment"># 如果为true，头像将为圆形</span></span><br><span class="line">  <span class="attr">rotated:</span> <span class="literal">false</span>    <span class="comment"># 如果为true，鼠标互动，头像将会旋转</span></span><br></pre></td></tr></table></figure><h2 id="设置首页是否可以阅读全文"><a href="#设置首页是否可以阅读全文" class="headerlink" title="设置首页是否可以阅读全文"></a>设置首页是否可以阅读全文</h2><ol><li>第一种方法</li></ol><p>​在文章想要展示的地方添加**<code>&lt;!-- more --&gt;</code><strong>。</strong>（极力推荐）**</p><ol start="2"><li>修改config文件（未解决）</li></ol><h2 id="隐藏网页底部-powered-By-Hexo-强力驱动"><a href="#隐藏网页底部-powered-By-Hexo-强力驱动" class="headerlink" title="隐藏网页底部 powered By Hexo &#x2F; 强力驱动"></a>隐藏网页底部 powered By Hexo &#x2F; 强力驱动</h2><p>打开 <code>themes/next/layout/partials/footer.njk</code> 文件，找到如下代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> theme.<span class="property">footer</span>.<span class="property">powered</span> %&#125;</span><br><span class="line">  &lt;div <span class="keyword">class</span>=<span class="string">&quot;powered-by&quot;</span>&gt;</span><br><span class="line">    &#123;%- set next_site = <span class="string">&#x27;https://theme-next.js.org&#x27;</span> <span class="keyword">if</span> theme.<span class="property">scheme</span> === <span class="string">&#x27;Gemini&#x27;</span> <span class="keyword">else</span> <span class="string">&#x27;https://theme-next.js.org/&#x27;</span> + theme.<span class="property">scheme</span> | lower + <span class="string">&#x27;/&#x27;</span> %&#125;</span><br><span class="line">    &#123;&#123;- <span class="title function_">__</span>(<span class="string">&#x27;footer.powered&#x27;</span>, <span class="title function_">next_url</span>(<span class="string">&#x27;https://hexo.io&#x27;</span>, <span class="string">&#x27;Hexo&#x27;</span>) + <span class="string">&#x27; &amp; &#x27;</span> + <span class="title function_">next_url</span>(next_site, <span class="string">&#x27;NexT.&#x27;</span> + theme.<span class="property">scheme</span>)) &#125;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure><p>把这段代码首尾分别加上：<code>&lt;!--</code> 和 <code>--&gt;</code>，或者直接删除。</p><h2 id="添加文章阴影-未解决"><a href="#添加文章阴影-未解决" class="headerlink" title="添加文章阴影(未解决)"></a>添加文章阴影(未解决)</h2><p>打开 <code>/themes/next/source/css/custom/custom.styl</code> 文件，添加如下代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.post &#123;</span><br><span class="line">    margin-top: 60px;</span><br><span class="line">    margin-bottom: 60px;</span><br><span class="line">    padding: 25px;</span><br><span class="line">    -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">    -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="浏览页面显示当前浏览进度"><a href="#浏览页面显示当前浏览进度" class="headerlink" title="浏览页面显示当前浏览进度"></a>浏览页面显示当前浏览进度</h2><p>打开 <code>themes/next/\_config.yml</code> 文件，搜索 <code>scrollpercent</code>，把 false 改为 <code>true</code>。</p><h2 id="设置网站图标"><a href="#设置网站图标" class="headerlink" title="设置网站图标"></a>设置网站图标</h2><p>制作一个图案，在在 <a href="https://www.zhanid.com/tool/ico.html"><strong>ZHANID</strong></a> 转换成 ico 图标，下载到本地 <code>/themes/next/source/images</code> 文件夹里，并且修改主题配置文件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  #small: /images/favicon-16x16-next.png</span><br><span class="line">  #medium: /images/favicon.ico</span><br><span class="line">  #apple_touch_icon: /images/apple-touch-icon-next.png</span><br><span class="line">  #safari_pinned_tab: /images/logo.svg</span><br><span class="line">  #android_manifest: /manifest.json</span><br></pre></td></tr></table></figure><p>去掉 <code>medium</code> 前面的 <code>#</code>。</p><h2 id="将文章底部的”-”标签更换为图标🏷️"><a href="#将文章底部的”-”标签更换为图标🏷️" class="headerlink" title="将文章底部的”#”标签更换为图标🏷️"></a>将文章底部的”#”标签更换为图标🏷️</h2><p>打开 <code>/themes/next/layout/_macro/post.njk</code> 文件，修改以下代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if theme.tag_icon else &#x27;#&#x27;</span><br><span class="line"># 改为：</span><br><span class="line">if theme.tag_icon else &#x27;🏷️&#x27;</span><br></pre></td></tr></table></figure><h2 id="添加代码复制按钮"><a href="#添加代码复制按钮" class="headerlink" title="添加代码复制按钮"></a>添加代码复制按钮</h2><p>在主题配置文件中搜索 <code>codeblock</code>，把默认配置改为如下配置：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">codeblock:</span></span><br><span class="line">  <span class="comment"># Code Highlight theme</span></span><br><span class="line">  <span class="comment"># All available themes: https://theme-next.js.org/highlight/</span></span><br><span class="line">  <span class="attr">theme:</span></span><br><span class="line">    <span class="attr">light:</span> <span class="string">default</span></span><br><span class="line">    <span class="attr">dark:</span> <span class="string">stackoverflow-dark</span></span><br><span class="line">  <span class="attr">prism:</span></span><br><span class="line">    <span class="attr">light:</span> <span class="string">prism</span></span><br><span class="line">    <span class="attr">dark:</span> <span class="string">prism-dark</span></span><br><span class="line">  <span class="comment"># Add copy button on codeblock</span></span><br><span class="line">  <span class="attr">copy_button:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="string">enable</span></span><br><span class="line">    <span class="attr">show_result:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># Available values: default | flat | mac</span></span><br><span class="line">    <span class="attr">style:</span> <span class="string">mac</span></span><br><span class="line">  <span class="comment"># Fold code block</span></span><br><span class="line">  <span class="attr">fold:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">height:</span> <span class="number">500</span></span><br></pre></td></tr></table></figure><h2 id="添加顶部按钮"><a href="#添加顶部按钮" class="headerlink" title="添加顶部按钮"></a>添加顶部按钮</h2><p>在主题配置文件中搜索 <code>back2top</code> ，把 <code>enable</code> 参数值设为 <code>true</code>。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  enable: true</span><br><span class="line">  # Back to top in sidebar.</span><br><span class="line">  sidebar: false</span><br><span class="line">  # Scroll percent label in b2t button.</span><br><span class="line">  scrollpercent: true</span><br></pre></td></tr></table></figure><h2 id="各版块透明度修改"><a href="#各版块透明度修改" class="headerlink" title="各版块透明度修改"></a>各版块透明度修改</h2><h3 id="内容板块透明化"><a href="#内容板块透明化" class="headerlink" title="内容板块透明化"></a>内容板块透明化</h3><p>博客根目录 <code>themes\next\source\css_schemes\Pisces_layout.styl</code> 文件 <code>.content-wrap</code> 标签下 <code>background: white</code> 修改为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); //0.7是透明度</span><br></pre></td></tr></table></figure><p>博客根目录 <code>themes\next\source\css_schemes\Gemini\index.styl</code> 文件 <code>.post-block</code> 标签下的 <code>background: white</code> 修改为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); //0.7是透明度</span><br></pre></td></tr></table></figure><h3 id="分页板块透明化"><a href="#分页板块透明化" class="headerlink" title="分页板块透明化"></a>分页板块透明化</h3><p>博客根目录 <code>themes\next\source\css_schemes\Gemini\index.styl</code> 文件 <code>.pagination</code> 标签下的 <code>background: white</code> 修改为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); //0.7是透明度</span><br></pre></td></tr></table></figure><h3 id="菜单栏板块透明化"><a href="#菜单栏板块透明化" class="headerlink" title="菜单栏板块透明化"></a>菜单栏板块透明化</h3><p>博客根目录 <code>themes\next\source\css_schemes\Pisces_layout.styl</code> 文件 <code>.header-inner</code> 标签下 <code>background: white</code> 修改为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); //0.7是透明度</span><br></pre></td></tr></table></figure><p>博客根目录 <code>themes\next\source\css_schemes\Pisces_sidebar.styl</code> 文件 <code>.sidebar</code> 标签下增加一行:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opacity: 0.7; // 0.7透明度自己选择</span><br></pre></td></tr></table></figure><h2 id="页脚添加访客量（未解决）"><a href="#页脚添加访客量（未解决）" class="headerlink" title="页脚添加访客量（未解决）"></a>页脚添加访客量（未解决）</h2><p>在 footer 模板文件（<code>themes/next/layout/_partials/footer.njk</code>）底部添加以下代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;powered-by&quot;&gt;</span><br><span class="line">    &lt;script async src=&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">        本站访客数:&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">    &lt;span class=&quot;post-meta-divider&quot;&gt;|&lt;/span&gt;</span><br><span class="line">    &lt;span id=&quot;busuanzi_container_site_pv&quot;&gt;</span><br><span class="line">        本站访问量&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure><h2 id="更改默认-Google-字体库"><a href="#更改默认-Google-字体库" class="headerlink" title="更改默认 Google 字体库"></a>更改默认 Google 字体库</h2><blockquote><p>访问网站总是会耗费一大部分的时间在加载 <code>google</code> 字体库上, 而且经常加载不成功。我们可以用国内的 <code>CDN库</code> 来替代主题中的 <code>google</code> 字体库。</p></blockquote><p>打开主题配置文件，搜索 <code>Font Settings</code> 字体库设置板块，把字体库服务器 <code>host</code> 改为国内CDN库（<a href="https://kfufys.github.io/posts/fonts.useso.com">fonts.useso.com</a>）：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Uri of fonts host, e.g. https://fonts.googleapis.com (Default).</span><br><span class="line">#host:</span><br><span class="line">host: fonts.useso.com</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>HEXO-建站简介</title>
+    <url>/posts/20260423202043-22508.html</url>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>个人的学习博客，使用Hexo搭建，主题改用使用Next，并且部署在Github，日后可能会更换更快的网站。本站将用来记录学习、备份操作与记录感悟。</p>
+<p>吸取之前的建站经验，尽量以简洁为主，少用图片以加快网站运行速度，多备份，并使用简单的页面布局。</p>
+<span id="more"></span>
+
+<blockquote>
+<p>NexT中文使用文档：<a href="https://theme-next.iissnan.com/">https://theme-next.iissnan.com/</a></p>
+<p>参考来源：</p>
+<p>【[馨客栈分享]使用Hexo博客搭建的个人博客，使用Next主题来进行优化改造】 <a href="https://www.bilibili.com/video/BV16W411t7mq/?p=16&share_source=copy_web&vd_source=57bb74376930424b7a2e91438825af1d">https://www.bilibili.com/video/BV16W411t7mq/?p=16&amp;share_source=copy_web&amp;vd_source=57bb74376930424b7a2e91438825af1d</a></p>
+<p><a href="https://www.simon96.online/2018/10/12/hexo-tutorial/">【持续更新】最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析 | 遇见西门</a></p>
+<p><a href="https://kfufys.github.io/posts/9aae07a1.html">Hexo-Next 主题个性化配置教程 | Smart Space</a></p>
+</blockquote>
+<h1 id="配置设置"><a href="#配置设置" class="headerlink" title="配置设置"></a>配置设置</h1><h2 id="设置主题语言为中文"><a href="#设置主题语言为中文" class="headerlink" title="设置主题语言为中文"></a>设置主题语言为中文</h2><p>在[博客根目录]中，将_config.yml文件中的language设置为<code>zh-CN</code></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h2><p>在[主题目录]中，修改主题目录下的_config.yml文件中的avatar选项。</p>
+<p>例如：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://pic1.imgdb.cn/item/69e85afb361615f002f5dfd0.jpg</span></span><br></pre></td></tr></table></figure>
+
+<p>此外，下面还有两个侧边栏设置，可以按需开启：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://pic1.imgdb.cn/item/69e85afb361615f002f5dfd0.jpg</span></span><br><span class="line">  <span class="attr">rounded:</span> <span class="literal">false</span>    <span class="comment"># 如果为true，头像将为圆形</span></span><br><span class="line">  <span class="attr">rotated:</span> <span class="literal">false</span>    <span class="comment"># 如果为true，鼠标互动，头像将会旋转</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="设置首页是否可以阅读全文"><a href="#设置首页是否可以阅读全文" class="headerlink" title="设置首页是否可以阅读全文"></a>设置首页是否可以阅读全文</h2><ol>
+<li>第一种方法</li>
+</ol>
+<p>​	在文章想要展示的地方添加**<code>&lt;!-- more --&gt;</code><strong>。</strong>（极力推荐）**</p>
+<ol start="2">
+<li>修改config文件（未解决）</li>
+</ol>
+<h2 id="隐藏网页底部-powered-By-Hexo-强力驱动"><a href="#隐藏网页底部-powered-By-Hexo-强力驱动" class="headerlink" title="隐藏网页底部 powered By Hexo &#x2F; 强力驱动"></a>隐藏网页底部 powered By Hexo &#x2F; 强力驱动</h2><p>打开 <code>themes/next/layout/partials/footer.njk</code> 文件，找到如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> theme.<span class="property">footer</span>.<span class="property">powered</span> %&#125;</span><br><span class="line">  &lt;div <span class="keyword">class</span>=<span class="string">&quot;powered-by&quot;</span>&gt;</span><br><span class="line">    &#123;%- set next_site = <span class="string">&#x27;https://theme-next.js.org&#x27;</span> <span class="keyword">if</span> theme.<span class="property">scheme</span> === <span class="string">&#x27;Gemini&#x27;</span> <span class="keyword">else</span> <span class="string">&#x27;https://theme-next.js.org/&#x27;</span> + theme.<span class="property">scheme</span> | lower + <span class="string">&#x27;/&#x27;</span> %&#125;</span><br><span class="line">    &#123;&#123;- <span class="title function_">__</span>(<span class="string">&#x27;footer.powered&#x27;</span>, <span class="title function_">next_url</span>(<span class="string">&#x27;https://hexo.io&#x27;</span>, <span class="string">&#x27;Hexo&#x27;</span>) + <span class="string">&#x27; &amp; &#x27;</span> + <span class="title function_">next_url</span>(next_site, <span class="string">&#x27;NexT.&#x27;</span> + theme.<span class="property">scheme</span>)) &#125;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>把这段代码首尾分别加上：<code>&lt;!--</code> 和 <code>--&gt;</code>，或者直接删除。</p>
+<h2 id="添加文章阴影-未解决"><a href="#添加文章阴影-未解决" class="headerlink" title="添加文章阴影(未解决)"></a>添加文章阴影(未解决)</h2><p>打开 <code>/themes/next/source/css/custom/custom.styl</code> 文件，添加如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.post &#123;</span><br><span class="line">    margin-top: 60px;</span><br><span class="line">    margin-bottom: 60px;</span><br><span class="line">    padding: 25px;</span><br><span class="line">    -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">    -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="浏览页面显示当前浏览进度"><a href="#浏览页面显示当前浏览进度" class="headerlink" title="浏览页面显示当前浏览进度"></a>浏览页面显示当前浏览进度</h2><p>打开 <code>themes/next/\_config.yml</code> 文件，搜索 <code>scrollpercent</code>，把 false 改为 <code>true</code>。</p>
+<h2 id="设置网站图标"><a href="#设置网站图标" class="headerlink" title="设置网站图标"></a>设置网站图标</h2><p>制作一个图案，在在 <a href="https://www.zhanid.com/tool/ico.html"><strong>ZHANID</strong></a> 转换成 ico 图标，下载到本地 <code>/themes/next/source/images</code> 文件夹里，并且修改主题配置文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  #small: /images/favicon-16x16-next.png</span><br><span class="line">  #medium: /images/favicon.ico</span><br><span class="line">  #apple_touch_icon: /images/apple-touch-icon-next.png</span><br><span class="line">  #safari_pinned_tab: /images/logo.svg</span><br><span class="line">  #android_manifest: /manifest.json</span><br></pre></td></tr></table></figure>
+
+<p>去掉 <code>medium</code> 前面的 <code>#</code>。</p>
+<h2 id="将文章底部的”-”标签更换为图标🏷️"><a href="#将文章底部的”-”标签更换为图标🏷️" class="headerlink" title="将文章底部的”#”标签更换为图标🏷️"></a>将文章底部的”#”标签更换为图标🏷️</h2><p>打开 <code>/themes/next/layout/_macro/post.njk</code> 文件，修改以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if theme.tag_icon else &#x27;#&#x27;</span><br><span class="line"># 改为：</span><br><span class="line">if theme.tag_icon else &#x27;🏷️&#x27;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="添加代码复制按钮"><a href="#添加代码复制按钮" class="headerlink" title="添加代码复制按钮"></a>添加代码复制按钮</h2><p>在主题配置文件中搜索 <code>codeblock</code>，把默认配置改为如下配置：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">codeblock:</span></span><br><span class="line">  <span class="comment"># Code Highlight theme</span></span><br><span class="line">  <span class="comment"># All available themes: https://theme-next.js.org/highlight/</span></span><br><span class="line">  <span class="attr">theme:</span></span><br><span class="line">    <span class="attr">light:</span> <span class="string">default</span></span><br><span class="line">    <span class="attr">dark:</span> <span class="string">stackoverflow-dark</span></span><br><span class="line">  <span class="attr">prism:</span></span><br><span class="line">    <span class="attr">light:</span> <span class="string">prism</span></span><br><span class="line">    <span class="attr">dark:</span> <span class="string">prism-dark</span></span><br><span class="line">  <span class="comment"># Add copy button on codeblock</span></span><br><span class="line">  <span class="attr">copy_button:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="string">enable</span></span><br><span class="line">    <span class="attr">show_result:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># Available values: default | flat | mac</span></span><br><span class="line">    <span class="attr">style:</span> <span class="string">mac</span></span><br><span class="line">  <span class="comment"># Fold code block</span></span><br><span class="line">  <span class="attr">fold:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">height:</span> <span class="number">500</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="添加顶部按钮"><a href="#添加顶部按钮" class="headerlink" title="添加顶部按钮"></a>添加顶部按钮</h2><p>在主题配置文件中搜索 <code>back2top</code> ，把 <code>enable</code> 参数值设为 <code>true</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  enable: true</span><br><span class="line">  # Back to top in sidebar.</span><br><span class="line">  sidebar: false</span><br><span class="line">  # Scroll percent label in b2t button.</span><br><span class="line">  scrollpercent: true</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="各版块透明度修改"><a href="#各版块透明度修改" class="headerlink" title="各版块透明度修改"></a>各版块透明度修改</h2><h3 id="内容板块透明化"><a href="#内容板块透明化" class="headerlink" title="内容板块透明化"></a>内容板块透明化</h3><p>博客根目录 <code>themes\next\source\css_schemes\Pisces_layout.styl</code> 文件 <code>.content-wrap</code> 标签下 <code>background: white</code> 修改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); //0.7是透明度</span><br></pre></td></tr></table></figure>
+
+<p>博客根目录 <code>themes\next\source\css_schemes\Gemini\index.styl</code> 文件 <code>.post-block</code> 标签下的 <code>background: white</code> 修改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); //0.7是透明度</span><br></pre></td></tr></table></figure>
+
+<h3 id="分页板块透明化"><a href="#分页板块透明化" class="headerlink" title="分页板块透明化"></a>分页板块透明化</h3><p>博客根目录 <code>themes\next\source\css_schemes\Gemini\index.styl</code> 文件 <code>.pagination</code> 标签下的 <code>background: white</code> 修改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); //0.7是透明度</span><br></pre></td></tr></table></figure>
+
+<h3 id="菜单栏板块透明化"><a href="#菜单栏板块透明化" class="headerlink" title="菜单栏板块透明化"></a>菜单栏板块透明化</h3><p>博客根目录 <code>themes\next\source\css_schemes\Pisces_layout.styl</code> 文件 <code>.header-inner</code> 标签下 <code>background: white</code> 修改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); //0.7是透明度</span><br></pre></td></tr></table></figure>
+
+<p>博客根目录 <code>themes\next\source\css_schemes\Pisces_sidebar.styl</code> 文件 <code>.sidebar</code> 标签下增加一行:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">opacity: 0.7; // 0.7透明度自己选择</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="页脚添加访客量（未解决）"><a href="#页脚添加访客量（未解决）" class="headerlink" title="页脚添加访客量（未解决）"></a>页脚添加访客量（未解决）</h2><p>在 footer 模板文件（<code>themes/next/layout/_partials/footer.njk</code>）底部添加以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;powered-by&quot;&gt;</span><br><span class="line">    &lt;script async src=&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">        本站访客数:&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">    &lt;span class=&quot;post-meta-divider&quot;&gt;|&lt;/span&gt;</span><br><span class="line">    &lt;span id=&quot;busuanzi_container_site_pv&quot;&gt;</span><br><span class="line">        本站访问量&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="更改默认-Google-字体库"><a href="#更改默认-Google-字体库" class="headerlink" title="更改默认 Google 字体库"></a>更改默认 Google 字体库</h2><blockquote>
+<p>访问网站总是会耗费一大部分的时间在加载 <code>google</code> 字体库上, 而且经常加载不成功。我们可以用国内的 <code>CDN库</code> 来替代主题中的 <code>google</code> 字体库。</p>
+</blockquote>
+<p>打开主题配置文件，搜索 <code>Font Settings</code> 字体库设置板块，把字体库服务器 <code>host</code> 改为国内CDN库（<a href="https://kfufys.github.io/posts/fonts.useso.com">fonts.useso.com</a>）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Uri of fonts host, e.g. https://fonts.googleapis.com (Default).</span><br><span class="line">#host:</span><br><span class="line">host: fonts.useso.com</span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
-          
-          <category> 教程 </category>
-          
+        <category>教程</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> HEXO </tag>
-            
-            <tag> 待整理 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>HEXO</tag>
+        <tag>待整理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MD-banner所用元素</title>
+    <url>/posts/20260425005454-26208.html</url>
+    <content><![CDATA[<p>所有常用Banner元素</p>
+<span id="more"></span>
+
+<table>
+<thead>
+<tr>
+<th>元素</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td>即文章的标题</td>
+</tr>
+<tr>
+<td>date</td>
+<td>文章创建的时间，由hexo自动创建</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>标签，使用-隔断，例如“- 笔记”</td>
+</tr>
+<tr>
+<td>categories</td>
+<td>分类，大类区分</td>
+</tr>
+<tr>
+<td>top</td>
+<td>“true”：启用无序置顶排列。”1,2,…”：顺序置顶排列。</td>
+</tr>
+<tr>
+<td>cover</td>
+<td>banner所用封面</td>
+</tr>
+</tbody></table>
+<p>加密文章所用的banner元素：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">password: 123456</span><br><span class="line">abstract: 这里有东西被加密了，需要输入密码查看哦。</span><br><span class="line">message: 您好，这里需要密码。</span><br><span class="line">wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。</span><br><span class="line">wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HEXO-添加文章置顶</title>
+    <url>/posts/20260425004955-57101.html</url>
+    <content><![CDATA[<h1 id="文章置顶"><a href="#文章置顶" class="headerlink" title="文章置顶"></a>文章置顶</h1><p>顾名思义，置顶文章。</p>
+<span id="more"></span>
+
+<p>移除默认安装的插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-generator-index --save</span><br></pre></td></tr></table></figure>
+
+<p>安装新插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-index-pin-top --save</span><br></pre></td></tr></table></figure>
+
+<p>写需要置顶的文章时，在 Front-matter 区域，加上一行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">top: true</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>如果置顶多篇，怎么控制顺序呢？</strong></p>
+<p><strong>答</strong>：设置top的值（大的在前面）。</p>
+</blockquote>
+<p>例如（文章 b 会显示在文章 a 的前面）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Post a.md</span><br><span class="line">title: XXX</span><br><span class="line">top: 1</span><br><span class="line"></span><br><span class="line"># Post b.md</span><br><span class="line">title: xxx</span><br><span class="line">top: 10</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="添加置顶图标"><a href="#添加置顶图标" class="headerlink" title="添加置顶图标"></a>添加置顶图标</h1><p>打开 <code>/themes/next/layout/_macro/post.njk</code> 文件，在 <code>&lt;div class=&quot;post-meta-container&quot;&gt;</code> 下方，插入如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% if post.top %&#125;</span><br><span class="line">    &lt;i class=&quot;fa fa-thumb-tack&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;font color=7D26CD&gt;置顶&lt;/font&gt;</span><br><span class="line">    &lt;span class=&quot;post-meta-divider&quot;&gt;&lt;/span&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>HEXO</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HEXO-增加文章字数统计及阅读时长功能</title>
+    <url>/posts/20260425003232-2293.html</url>
+    <content><![CDATA[<h1 id="增加文章字数统计及阅读时长功能"><a href="#增加文章字数统计及阅读时长功能" class="headerlink" title="增加文章字数统计及阅读时长功能"></a>增加文章字数统计及阅读时长功能</h1><p>用于记录文章字数及计数阅读时长。</p>
+<span id="more"></span>
+
+<p>安装插件 <code>hexo-wordcount</code> ，执行以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
+
+<p>在主题配置文件中搜索 <code>symbols_count_time</code>，修改成如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/next-theme/hexo-word-counter</span><br><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true</span><br><span class="line">  item_text_post: true # 文章字数统计</span><br><span class="line">  item_text_total: true # 站点总字数统计</span><br><span class="line">  # 平均单词长度（单词的计数）。默认值:4。CN≈2 EN≈5 俄文≈6</span><br><span class="line">  awl: 2</span><br><span class="line">  # 每分钟的单词。默认值:275。缓慢≈200 正常≈275 快≈350</span><br><span class="line">  wpm: 275</span><br></pre></td></tr></table></figure>
+
+<p>如果安装完报如下提醒，还需安装eslint </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">D:\hexo\blog&gt;npm install hexo-symbols-count-time --save</span><br><span class="line">npm WARN babel-eslint@10.0.1 requires a peer of eslint@&gt;= 4.12.1 but none is installed. You must install peer dependencies yourself.</span><br></pre></td></tr></table></figure>
+
+<p>安装eslint</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install eslint --save</span><br></pre></td></tr></table></figure>
+
+<p>在站点配置文件（_config.yml）添加以下配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true                # 文章字数统计</span><br><span class="line">  time: true                   # 文章阅读时长</span><br><span class="line">  total_symbols: true          # 站点总字数统计</span><br><span class="line">  total_time: true             # 站点总阅读时长</span><br><span class="line">  exclude_codeblock: false     # 排除代码字数统计</span><br></pre></td></tr></table></figure>
+
+<p>在NexT主题配置中添加以下配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/theme-next/hexo-symbols-count-time</span><br><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true     # 是否另起一行（true的话不和发表时间等同一行）</span><br><span class="line">  item_text_post: true     # 首页文章统计数量前是否显示文字描述（本文字数、阅读时长）</span><br><span class="line">  item_text_total: false   # 页面底部统计数量前是否显示文字描述（站点总字数、站点阅读时长）</span><br><span class="line">  awl: 4                   # Average Word Length</span><br><span class="line">  wpm: 275                 # Words Per Minute（每分钟阅读词数）</span><br><span class="line">  suffix: mins</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>参考来源：<a href="https://blog.csdn.net/mqdxiaoxiao/article/details/93670772">Hexo博客NexT主题下添加字数统计和阅读时长_字数和阅读时长-CSDN博客</a></p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>HEXO</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>测试文章</title>
+    <url>/posts/20260425000200-4131.html</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容">
+  <script id="hbeData" type="hbeData" data-hmacdigest="525fa695aadda417a3bea26be062557be3cdc119e23521fb98a9f0993e29bbc8">4630436162ade97ba2718b7d0c4b3b63b5797885a4f9ac0763a71c0dbf7135f70ec7c1784c72545e080cc594c48b93cc24d2eb78b3275344c20978a07be4d81d3615beb69ad1e928f45b5563c9b09df4289c610130ac4874828b507643f9f3ff7ea6a0a9f8ea6c76d1010d32c2714ad8f8c5194fc9f4c67ed3e6c1f51e531b1be5c4889709d25bc1351ba51e6f1b763788b00637fbc0a8e47f26e8c7cb79d43edfedd5c4ccf661f7317eda97125f26ed09440642cc6b8f32b10ccb0b9402f6ab15a47006392c95c462be78c61aa39b313c539dbc93a8cec2da1a9a4896329eac7ecfe352baa39ce37572203935a98f784417ac464e6d50378fb64cc1c9db3077cbe702535c9159ab101babdfc57599bfeb45e32926d86c9cc207d981ab9c1309d9fc4dddbd83165569fc5f3d6d96b89f70abbb9a38b545d5a715f626b824538b856b997b1cf7101d23791f08f57fc8da36fa25684294f8b27e1cbadbf78731ee88b500276b8f90ab1ea3528058c2dc38cd319c3a049fc27a19683f47091968933cf785c0ed013b4f59c94de16c4770ec943b3ee542131bf7239661ed417ec0992398765e21c47e2ed1e3a833f9ec1beb7b62e5d65784ba7a2db84a775ede61605e5c109922a49f95138c93d3651729b073aad39a9b1730327616a4f3dca29888d3536d2fa67c1fe5c60e22785be882316dbef6a20bbf8b1b98d4953f2f4f0d0739c7d4647b8a1a6be77014c1ad4c772bc0d2373d43bbddccb9af89a5ecfaf9d71c193c7820f7cc5e4a035b17238ef994beb44b164aa90d1ff015b18bff1a7a7c46c2d42d41a84dca06f73b30d9bc22459f0c0ee2b11a3f4ac4a0d2d07b13a7696296b91c63f007f891c1be578b38721531e0171228ea4a5ecd6aa21b3427358b5860c8b57794295931b7f81dac94d604de7f6032f246e717f2cf23e27359385c81e43b6e075fef9a590f82ea50ae97d9272a87698de566354ceef72ccc4cf4337663b6427cedee8468ca7b754774eeb545055408c8a04ec9dee51f773232d72953ce114cf201e7d7f2697cdab6ae7f99d85546f457139057bf59ef593e80f1307253465af475b1df9af13fe4c1138540e67db2a92906d8599f162b2e00974a0b3be917953471b74824c5bfa18ae72520b718ab6bf30226c3f27ac0243cf16b101be4d93707dda193b4460e3c0d3e3f7bb44b11b5b7e533fa7c1c04672c9bbae4ec3f9da6a378a07f76e052038bdeb7c61fa40f6d936e9c1c7be56c8d330f6bc867beaf8af7d1ee2247e5fd07b369f81ae6b2e18aadc1e96753880a73d41784a98800e19dde7a16a864618ca0b06e9dd437ff98e765720b881537acabd79fd5c995cce502ba4bd39888a4be7e22e51b3b09bcba32888686204022be2f0f488483915bc16ba20a8ad16a0eada6d08495eb0c147b3a391b35207291a7f4be66ebc11e1bfe9feea0a2dd4a72663ef4893a4b01e1bc5bde8f055a8e301ddd84af717e5f81062b939f4e910d2f6e4017bacd5bc1b8ea39867fd013b0ca9e3e4a59b2bf9919e61e3cd6037eeb945b37c7d0f86a76db97d413996a5c6fdc450096742c6f09dc995c2d4446ec14367d0b9e2c92da0c59a20e070bae27a4f67f24371f15acf1261381b9ccf442e2724ecb3f6c1673bfd2eedfe3b91ba577146dbbc0d1b866e0706ccb0fd1c8a23c448cd288bf9214d03e81bac8e90d11610447c93b3cc67546775c91adf147763f65e4c6b83b06f36a688654fa73ace92d622ed0729c74a88e900cc52db77f52098b5422f4760be82541d0f443e00f87e80884f9cb6e549a1bbb564c5dc5550b693ebade5ca76bd515811b994417c6cc635dd183247d664b</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好，这里需要密码。</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+  </entry>
+  <entry>
+    <title>HEXO-添加本地搜索</title>
+    <url>/posts/20260424235141-59610.html</url>
+    <content><![CDATA[<h2 id="Local-Search-本地搜索"><a href="#Local-Search-本地搜索" class="headerlink" title="Local Search 本地搜索"></a>Local Search 本地搜索</h2><p>在左侧侧边栏添加搜索功能。</p>
+<span id="more"></span>
+
+<p>安装插件 <code>hexo-generator-searchdb</code>，在Blog根目录运行git bush，输入以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+<p>修改站点全局配置文件(_config.yml)，添加以下内容到任意位置。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#本地搜索</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在主题配置文件(_config_next.yml)，修改local_search的enable为true，启用本地搜索。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>HEXO</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HEXO-为文章添加加密访问</title>
+    <url>/posts/20260424234943-7940.html</url>
+    <content><![CDATA[<h1 id="文章的加密访问"><a href="#文章的加密访问" class="headerlink" title="文章的加密访问"></a>文章的加密访问</h1><p>有时，我们希望记录一些个人笔记或者对嘉豪时期的文章（但是不舍得删除的）进行私密处理，这时候，密码加密是个不错的主意。</p>
+<span id="more"></span>
+
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>在博客根目录安装插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-blog-encrypt</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后，在package.json文件的dependecies依赖中可以看到encrypt插件，证明安装成功。</p>
+<p>配置hexo中的_config.yml文件，在文件末尾添加如下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 安全设置</span><br><span class="line">encrypt:</span><br><span class="line">  # 启用插件</span><br><span class="line">  enable: true</span><br><span class="line">  # 自定义加密相关设置</span><br><span class="line">  abstract: &quot;这里的内容加密了，需要密码哦。&quot;</span><br><span class="line">  message: &quot;请输入密码查看本文。&quot;</span><br><span class="line">  # 可以在这里设定特定标签对应的默认密码</span><br><span class="line">  tags:</span><br><span class="line">    - [name: &quot;encryptAsSecret&quot;, password: &quot;yoursecret&quot;]</span><br><span class="line">  # 错误消息设置</span><br><span class="line">  wrong_pass_message: &quot;密码错误，请重试。&quot;</span><br><span class="line">  wrong_hash_message: &quot;内容认证失败，但仍可尝试查看。&quot;</span><br><span class="line">  # 是否禁用日志记录</span><br><span class="line">  silent: false</span><br></pre></td></tr></table></figure>
+
+
+
+<p>使用时需要在需要加密文章的头部banner中添加以下东西：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">title: ###</span><br><span class="line">date: XXXX-XX-XX XX:XX:XX</span><br><span class="line">password: mima 如果设为&quot;&quot;则为空</span><br><span class="line">abstract: 这里有东西被加密了，需要输入密码查看哦。</span><br><span class="line">message: 您好，这里需要密码。</span><br><span class="line">wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。</span><br><span class="line">wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>HEXO</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
 </search>
