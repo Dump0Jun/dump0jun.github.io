@@ -116,6 +116,7 @@
 <span id="more"></span>
 
 <h1 id="网站搭建"><a href="#网站搭建" class="headerlink" title="网站搭建"></a>网站搭建</h1><p>搭建Hexo个人网站教程见：<a href="https://hexo.io/zh-cn/docs/">文档 | Hexo</a></p>
+<p>部署详细教程见：<a href="https://zhuanlan.zhihu.com/p/688349142">HEXO系列教程 | 使用GitHub部署静态博客HEXO | 小白向教程 - 知乎</a></p>
 <h1 id="网站部署在Github"><a href="#网站部署在Github" class="headerlink" title="网站部署在Github"></a>网站部署在Github</h1><h2 id="Github设置"><a href="#Github设置" class="headerlink" title="Github设置"></a>Github设置</h2><ol>
 <li>创建一个Github账号，然后在github左侧点击<code>new</code>，创建一个新的仓库。</li>
 <li>仓库名称（Repository name)，必须是<code>用户名.github.io</code>。</li>
