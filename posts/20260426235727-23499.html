@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":"enable","show_result":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="一些常用Markdown语法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MD-一些语法备忘录">
+<meta property="og:url" content="http://example.com/posts/20260426235727-23499.html">
+<meta property="og:site_name" content="Dumpling&#39;s Blog">
+<meta property="og:description" content="一些常用Markdown语法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-04-26T15:57:27.149Z">
+<meta property="article:modified_time" content="2026-04-27T09:29:02.490Z">
+<meta property="article:author" content="饺子君不吃醋">
+<meta property="article:tag" content="Markdown">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/posts/20260426235727-23499.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/20260426235727-23499.html","path":"posts/20260426235727-23499.html","title":"MD-一些语法备忘录"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MD-一些语法备忘录 | Dumpling's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Dumpling's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">唯有生活与知识不可辜负</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E8%AF%AD%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">标题语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AE%B5%E8%90%BD"><span class="nav-number">2.</span> <span class="nav-text">段落</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8D%A2%E8%A1%8C"><span class="nav-number">3.</span> <span class="nav-text">换行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%BA%E6%A0%BC%E5%8D%A0%E4%BD%8D%E7%AC%A6"><span class="nav-number">4.</span> <span class="nav-text">空格占位符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%BA%E8%B0%83"><span class="nav-number">5.</span> <span class="nav-text">强调</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B2%97%E4%BD%93"><span class="nav-number">5.1.</span> <span class="nav-text">粗体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%9C%E4%BD%93"><span class="nav-number">5.2.</span> <span class="nav-text">斜体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%BA%E8%B0%83%E5%92%8C%E6%96%9C%E4%BD%93"><span class="nav-number">5.3.</span> <span class="nav-text">强调和斜体</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">6.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-number">7.</span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-number">7.1.</span> <span class="nav-text">有序列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-number">7.2.</span> <span class="nav-text">无序列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E9%9A%94%E7%AC%A6"><span class="nav-number">8.</span> <span class="nav-text">分隔符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">9.</span> <span class="nav-text">超链接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%99%E9%93%BE%E6%8E%A5%E5%A2%9E%E5%8A%A0-Title"><span class="nav-number">9.1.</span> <span class="nav-text">给链接增加 Title</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E5%9D%80%E5%92%8CEmail%E5%9C%B0%E5%9D%80"><span class="nav-number">9.2.</span> <span class="nav-text">网址和Email地址</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E5%8A%9E%E6%A0%87%E7%AD%BE"><span class="nav-number">10.</span> <span class="nav-text">代办标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F%E5%92%8C%E5%B0%BA%E5%AF%B8"><span class="nav-number">11.</span> <span class="nav-text">图片对齐方式和尺寸</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="饺子君不吃醋"
+      src="https://pic1.imgdb.cn/item/69e85afb361615f002f5dfd0.jpg">
+  <p class="site-author-name" itemprop="name">饺子君不吃醋</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/20260426235727-23499.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://pic1.imgdb.cn/item/69e85afb361615f002f5dfd0.jpg">
+      <meta itemprop="name" content="饺子君不吃醋">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dumpling's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MD-一些语法备忘录 | Dumpling's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MD-一些语法备忘录
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-04-26 23:57:27" itemprop="dateCreated datePublished" datetime="2026-04-26T23:57:27+08:00">2026-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-04-27 17:29:02" itemprop="dateModified" datetime="2026-04-27T17:29:02+08:00">2026-04-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" itemprop="url" rel="index"><span itemprop="name">技术杂谈</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.6k</span>
+    </span>
+</div>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>一些常用Markdown语法。</p>
+<span id="more"></span>
+
+<h1 id="标题语法"><a href="#标题语法" class="headerlink" title="标题语法"></a>标题语法</h1><p>在每行前面添加 <strong>#</strong> 号用来实现标题，一级标题一个#号，二级标题两个#号，以此类推值第六标题。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># header</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[!NOTE] <strong>可选语法</strong><br>还可以在标题下方添加 &#x3D;&#x3D;&#x3D; 或 — 用来作为分隔符</p>
+</blockquote>
+<br>
+
+<h1 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h1><p>可以使用单行空白分割段落。</p>
+<br>
+
+<h1 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h1><p><del>在一行的末尾添加两个或多个空格，然后按回车键,即可创建一个换行。</del><b>直接使用<code>&lt;br&gt;</code>来实现。</b></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这是一段话    </span><br><span class="line">这就完成了换行</span><br><span class="line">或者通过输入<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">来实现换行</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="空格占位符"><a href="#空格占位符" class="headerlink" title="空格占位符"></a>空格占位符</h1><p>直接写入HTML语法</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&amp;ensp;</span> 写入半方大空白</span><br><span class="line"><span class="symbol">&amp;emsp;</span> 写入一个中文字符的全方大空白</span><br><span class="line"><span class="symbol">&amp;nbsp;</span> 一个普通的空白</span><br><span class="line">$~~~$ 用来写入连续的空格字符，四个个~相当于一个中文字符大小</span><br></pre></td></tr></table></figure>
+<br>
+
+<h1 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h1><ul>
+<li><h2 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a>粗体</h2></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Markdown语法</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>I just love **bold text**.</code></td>
+<td>I just love <strong>bold text</strong>.</td>
+</tr>
+<tr>
+<td><code>I just love __bold text__.</code></td>
+<td>I just love <strong>bold text</strong>.</td>
+</tr>
+<tr>
+<td><code>Love**is**bold</code></td>
+<td>Love<strong>is</strong>bold</td>
+</tr>
+</tbody></table>
+<ul>
+<li><h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h2></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Markdown语法</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Italicized text is the *cat&#39;s meow*.</code></td>
+<td>Italicized text is the <em>cat’s meow</em>.</td>
+</tr>
+<tr>
+<td><code>Italicized text is the _cat&#39;s meow_.</code></td>
+<td>Italicized text is the <em>cat’s meow</em>.</td>
+</tr>
+<tr>
+<td><code>A*cat*meow</code></td>
+<td>A<em>cat</em>meow</td>
+</tr>
+</tbody></table>
+<ul>
+<li><h2 id="强调和斜体"><a href="#强调和斜体" class="headerlink" title="强调和斜体"></a>强调和斜体</h2></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Markdown语法</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>This text is ***really important***.</code></td>
+<td>This text is <strong><em>really important</em></strong>.</td>
+</tr>
+<tr>
+<td><code>This text is ___really important___.</code></td>
+<td>This text is <strong><em>really important</em></strong>.</td>
+</tr>
+<tr>
+<td><code>This text is __*really important*__.</code></td>
+<td>This text is <strong><em>really important</em></strong>.</td>
+</tr>
+<tr>
+<td><code>This text is **_really important_**.</code></td>
+<td>This text is <strong><em>really important</em></strong>.</td>
+</tr>
+<tr>
+<td><code>This is really***very***important text.</code></td>
+<td>This is really**<em>very</em>**important text.</td>
+</tr>
+</tbody></table>
+<br>
+
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>使用’&gt;’来进行引用<br>引用文献则采用<code>^[]</code>形式</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[^1]</span><br><span class="line">[^1]:URL</span><br></pre></td></tr></table></figure>
+<br>
+
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><ul>
+<li><h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Markdown语法</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>1. First item   2. Second item   3. Third item   4. Fourth item</code></td>
+<td>1. First item<br>2. Second item<br>3. Third item<br>4. Fourth item</td>
+</tr>
+<tr>
+<td><code>1. First item   1. Second item   1. Third item   1. Fourth item</code></td>
+<td>1. First item<br>2. Second item<br>3. Third item<br>4. Fourth item</td>
+</tr>
+<tr>
+<td><code>1. First item   8. Second item   3. Third item   5. Fourth item</code></td>
+<td>1. First item<br>2. Second item<br>3. Third item<br>4. Fourth item</td>
+</tr>
+<tr>
+<td><code>1. First item   2. Second item   3. Third item       1. Indented item       2. Indented item   4. Fourth item</code></td>
+<td>1. First item<br>2. Second item<br>3. Third item<br>    1. Indented item<br>    2. Indented item<br>4. Fourth item</td>
+</tr>
+</tbody></table>
+<ul>
+<li><h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-First item   - Second item   - Third item   - Fourth item</code></td>
+<td>- First item<br>- Second item<br>- Third item<br>- Fourth item</td>
+</tr>
+<tr>
+<td><code>* First item   * Second item   * Third item   * Fourth item</code></td>
+<td>- First item<br>- Second item<br>- Third item<br>- Fourth item</td>
+</tr>
+<tr>
+<td><code>+ First item   + Second item   + Third item   + Fourth item</code></td>
+<td>- First item<br>- Second item<br>- Third item<br>- Fourth item</td>
+</tr>
+<tr>
+<td><code>- First item   - Second item   - Third item       - Indented item       - Indented item   - Fourth item</code></td>
+<td>- First item<br>- Second item<br>- Third item<br>    - Indented item<br>    - Indented item<br>- Fourth item</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<br>
+
+<h1 id="分隔符"><a href="#分隔符" class="headerlink" title="分隔符"></a>分隔符</h1><p>直接使用 <code>ctrl+alt+f</code> 的快捷键即可</p>
+<br>
+
+<h1 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h1><p>超链接Markdown语法代码：<code>[超链接显示名](超链接地址 &quot;超链接title&quot;)</code></p>
+<p>对应的HTML代码：<code>&lt;a href=&quot;超链接地址&quot; title=&quot;超链接title&quot;&gt;超链接显示名&lt;/a&gt;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个链接 [Markdown语法](https://markdown.com.cn)。</span><br></pre></td></tr></table></figure>
+
+<p>渲染效果如下：</p>
+<p>这是一个链接 <a target="_blank" rel="noopener" href="https://markdown.com.cn/">Markdown语法</a>。</p>
+<h2 id="给链接增加-Title"><a href="#给链接增加-Title" class="headerlink" title="给链接增加 Title"></a>给链接增加 Title</h2><p>链接title是当鼠标悬停在链接上时会出现的文字，这个title是可选的，它放在圆括号中链接地址后面，跟链接地址之间以空格分隔。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个链接 [Markdown语法](https://markdown.com.cn &quot;最好的markdown教程&quot;)。</span><br></pre></td></tr></table></figure>
+
+<p>渲染效果如下：</p>
+<p>这是一个链接 <a target="_blank" rel="noopener" href="https://markdown.com.cn/" title="最好的markdown教程">Markdown语法</a>。</p>
+<br>
+
+<h2 id="网址和Email地址"><a href="#网址和Email地址" class="headerlink" title="网址和Email地址"></a>网址和Email地址</h2><p>使用尖括号可以很方便地把URL或者email地址变成可点击的链接。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;https://markdown.com.cn&gt;</span><br><span class="line">&lt;fake@example.com&gt;</span><br></pre></td></tr></table></figure>
+
+<p>渲染效果如下：</p>
+<p><a target="_blank" rel="noopener" href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="mailto:&#x66;&#x61;&#107;&#x65;&#x40;&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#x2e;&#x63;&#111;&#x6d;">fake@example.com</a></p>
+<h1 id="代办标签"><a href="#代办标签" class="headerlink" title="代办标签"></a>代办标签</h1><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> []    # [X] 则是被完成状态。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[!info] 快捷键<br>新版下是 ctrl + L</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 正文 </li>
+<li><input checked="" disabled="" type="checkbox"> 正文</li>
+</ul>
+<br>
+
+<h1 id="图片对齐方式和尺寸"><a href="#图片对齐方式和尺寸" class="headerlink" title="图片对齐方式和尺寸"></a>图片对齐方式和尺寸</h1><ul>
+<li><p>使用<a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=11634006&content_type=Answer&match_order=1&q=img%E6%A0%87%E7%AD%BE&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3Nzc0NTQ2NTMsInEiOiJpbWfmoIfnrb4iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoxMTYzNDAwNiwiY29udGVudF90eXBlIjoiQW5zd2VyIiwibWF0Y2hfb3JkZXIiOjEsInpkX3Rva2VuIjpudWxsfQ.x1Xq70vmBr6zF-e-xFwNcEE9XpiXGQRSOuKKd7TU1Ig&zhida_source=entity">img标签</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./xxx.png&quot;</span> <span class="attr">width</span> = <span class="string">&quot;300&quot;</span> <span class="attr">height</span> = <span class="string">&quot;200&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">align</span>=<span class="string">center</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>**附：**如果需要居中的话只要在外面包围div标签即可</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>  <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span>    # left or right</span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Markdown/" rel="tag">🏷️ Markdown</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/20260425161201-58300.html" rel="prev" title="HEXO-部署的问题">
+                  <i class="fa fa-angle-left"></i> HEXO-部署的问题
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/20260427164805-8649.html" rel="next" title="《为人三会》">
+                  《为人三会》 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">饺子君不吃醋</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">6k</span>
+  </span>
+</div>
+
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
