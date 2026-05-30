@@ -18,28 +18,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":"enable","show_result":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="增加文章字数统计及阅读时长功能 用于记录文章字数及计数阅读时长。">
+    <meta name="description" content="计算公式： d&#x3D;nλ2sinθ​d&#x3D; \frac{nλ}{2sinθ}  ​ d&#x3D;2sinθnλ​​  n 为衍射级数（通常取1，计算层间距时使用一级衍射峰） λ为入射X射线波长（常见Cu Kα靶，λ&#x3D;0.15418nm） θ为衍射角（注意：实验测得的2θ角需转换为θ）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HEXO-增加文章字数统计及阅读时长功能">
-<meta property="og:url" content="http://example.com/posts/20260425003232-2293.html">
+<meta property="og:title" content="XRD之计算层间距">
+<meta property="og:url" content="http://example.com/posts/20260529181140-23720.html">
 <meta property="og:site_name" content="饺子の小站 - Welcome">
-<meta property="og:description" content="增加文章字数统计及阅读时长功能 用于记录文章字数及计数阅读时长。">
+<meta property="og:description" content="计算公式： d&#x3D;nλ2sinθ​d&#x3D; \frac{nλ}{2sinθ}  ​ d&#x3D;2sinθnλ​​  n 为衍射级数（通常取1，计算层间距时使用一级衍射峰） λ为入射X射线波长（常见Cu Kα靶，λ&#x3D;0.15418nm） θ为衍射角（注意：实验测得的2θ角需转换为θ）">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-04-24T16:32:32.000Z">
-<meta property="article:modified_time" content="2026-04-27T10:56:25.183Z">
+<meta property="article:published_time" content="2026-05-29T10:11:40.000Z">
+<meta property="article:modified_time" content="2026-05-30T02:46:35.964Z">
 <meta property="article:author" content="饺子君不吃醋">
-<meta property="article:tag" content="HEXO">
-<meta property="article:tag" content="插件">
+<meta property="article:tag" content="XRD">
+<meta property="article:tag" content="材料分析技术">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/posts/20260425003232-2293.html">
+<link rel="canonical" href="http://example.com/posts/20260529181140-23720.html">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/20260425003232-2293.html","path":"posts/20260425003232-2293.html","title":"HEXO-增加文章字数统计及阅读时长功能"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/20260529181140-23720.html","path":"posts/20260529181140-23720.html","title":"XRD之计算层间距"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>HEXO-增加文章字数统计及阅读时长功能 | 饺子の小站 - Welcome</title>
+<title>XRD之计算层间距 | 饺子の小站 - Welcome</title>
   
 
 
@@ -169,7 +169,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E6%96%87%E7%AB%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%8F%8A%E9%98%85%E8%AF%BB%E6%97%B6%E9%95%BF%E5%8A%9F%E8%83%BD"><span class="nav-number">1.</span> <span class="nav-text"> 增加文章字数统计及阅读时长功能</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%8D%E5%B0%84%E6%B6%88%E5%85%89"><span class="nav-number">1.</span> <span class="nav-text"> 衍射消光</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8E%E8%A7%92%E5%BA%A6%E7%A7%BB%E5%8A%A8%E5%92%8C%E9%AB%98%E8%A7%92%E5%BA%A6%E7%A7%BB%E5%8A%A8%E8%AF%B4%E6%98%8E%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text"> 低角度移动和高角度移动说明什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#002-003-006-%E5%92%8C-00l-%E7%B3%BB%E5%88%97%E8%AF%A5%E6%80%8E%E6%A0%B7%E7%90%86%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text"> 002、003、006 和 00l 系列该怎样理解？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E5%B0%BE"><span class="nav-number">4.</span> <span class="nav-text"> 结尾</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -222,7 +222,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/20260425003232-2293.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/20260529181140-23720.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -235,12 +235,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="HEXO-增加文章字数统计及阅读时长功能 | 饺子の小站 - Welcome">
+      <meta itemprop="name" content="XRD之计算层间距 | 饺子の小站 - Welcome">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          HEXO-增加文章字数统计及阅读时长功能
+          XRD之计算层间距
         </h1>
 
         <div class="post-meta-container">
@@ -251,14 +251,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-04-25 00:32:32" itemprop="dateCreated datePublished" datetime="2026-04-25T00:32:32+08:00">2026-04-25</time>
+      <time title="创建时间：2026-05-29 18:11:40" itemprop="dateCreated datePublished" datetime="2026-05-29T18:11:40+08:00">2026-05-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-04-27 18:56:25" itemprop="dateModified" datetime="2026-04-27T18:56:25+08:00">2026-04-27</time>
+      <time title="修改时间：2026-05-30 10:46:35" itemprop="dateModified" datetime="2026-05-30T10:46:35+08:00">2026-05-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -266,11 +266,15 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" itemprop="url" rel="index"><span itemprop="name">技术杂谈</span></a>
+          <a href="/categories/%E7%A7%91%E7%A0%94%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">科研研究</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/HEXO/" itemprop="url" rel="index"><span itemprop="name">HEXO</span></a>
+          <a href="/categories/%E7%A7%91%E7%A0%94%E7%A0%94%E7%A9%B6/XRD/" itemprop="url" rel="index"><span itemprop="name">XRD</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A7%91%E7%A0%94%E7%A0%94%E7%A9%B6/XRD/%E5%B1%82%E9%97%B4%E8%B7%9D/" itemprop="url" rel="index"><span itemprop="name">层间距</span></a>
         </span>
     </span>
 
@@ -291,23 +295,68 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="增加文章字数统计及阅读时长功能"><a class="markdownIt-Anchor" href="#增加文章字数统计及阅读时长功能"></a> 增加文章字数统计及阅读时长功能</h1>
-<p>用于记录文章字数及计数阅读时长。</p>
+    <div class="post-body" itemprop="articleBody"><p>计算公式：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><mo>=</mo><mfrac><mrow><mi>n</mi><mi>λ</mi></mrow><mrow><mn>2</mn><mi>s</mi><mi>i</mi><mi>n</mi><mi>θ</mi></mrow></mfrac><mtext>​</mtext></mrow><annotation encoding="application/x-tex">d= \frac{nλ}{2sinθ}
+ ​
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.05744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathnormal">s</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="mord mathnormal">λ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord">​</span></span></span></span></span></p>
+<ul>
+<li>n 为衍射级数（通常取1，计算层间距时使用一级衍射峰）</li>
+<li>λ为入射X射线波长（常见Cu Kα靶，λ=0.15418nm）</li>
+<li>θ为衍射角（注意：实验测得的2θ角需转换为θ）</li>
+</ul>
 <span id="more"></span>
-<p>安装插件 <code>hexo-wordcount</code> ，执行以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
-<p>在主题配置文件中搜索 <code>symbols_count_time</code>，修改成如下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/next-theme/hexo-word-counter</span><br><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true</span><br><span class="line">  item_text_post: true # 文章字数统计</span><br><span class="line">  item_text_total: true # 站点总字数统计</span><br><span class="line">  # 平均单词长度（单词的计数）。默认值:4。CN≈2 EN≈5 俄文≈6</span><br><span class="line">  awl: 2</span><br><span class="line">  # 每分钟的单词。默认值:275。缓慢≈200 正常≈275 快≈350</span><br><span class="line">  wpm: 275</span><br></pre></td></tr></table></figure>
-<p>如果安装完报如下提醒，还需安装eslint</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\hexo\blog&gt;npm install hexo-symbols-count-time --save</span><br><span class="line">npm WARN babel-eslint@10.0.1 requires a peer of eslint@&gt;= 4.12.1 but none is installed. You must install peer dependencies yourself.</span><br></pre></td></tr></table></figure>
-<p>安装eslint</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install eslint --save</span><br></pre></td></tr></table></figure>
-<p>在站点配置文件（_config.yml）添加以下配置：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true                # 文章字数统计</span><br><span class="line">  time: true                   # 文章阅读时长</span><br><span class="line">  total_symbols: true          # 站点总字数统计</span><br><span class="line">  total_time: true             # 站点总阅读时长</span><br><span class="line">  exclude_codeblock: false     # 排除代码字数统计</span><br></pre></td></tr></table></figure>
-<p>在NexT主题配置中添加以下配置：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/theme-next/hexo-symbols-count-time</span><br><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true     # 是否另起一行（true的话不和发表时间等同一行）</span><br><span class="line">  item_text_post: true     # 首页文章统计数量前是否显示文字描述（本文字数、阅读时长）</span><br><span class="line">  item_text_total: false   # 页面底部统计数量前是否显示文字描述（站点总字数、站点阅读时长）</span><br><span class="line">  awl: 4                   # Average Word Length</span><br><span class="line">  wpm: 275                 # Words Per Minute（每分钟阅读词数）</span><br><span class="line">  suffix: mins</span><br></pre></td></tr></table></figure>
+<h1 id="衍射消光"><a class="markdownIt-Anchor" href="#衍射消光"></a> 衍射消光</h1>
 <blockquote>
-<p>参考来源：<a target="_blank" rel="noopener" href="https://blog.csdn.net/mqdxiaoxiao/article/details/93670772">Hexo博客NexT主题下添加字数统计和阅读时长_字数和阅读时长-CSDN博客</a></p>
+<p>（1997、一、3）：<a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=132347424&amp;content_type=Article&amp;match_order=1&amp;q=%E9%9D%A2%E5%BF%83%E7%AB%8B%E6%96%B9&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAyMjg2NjAsInEiOiLpnaLlv4Pnq4vmlrkiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoxMzIzNDc0MjQsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.QfMId6AqYU_fgPWPGFgEq-FwrDM9wh2Ae-Q5esknikM&amp;zhida_source=entity">面心立方</a>的 Cu 单晶（晶格常数 Å ）的 <a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=132347424&amp;content_type=Article&amp;match_order=1&amp;q=X+%E5%B0%84%E7%BA%BF%E8%A1%8D%E5%B0%84&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAyMjg2NjAsInEiOiJYIOWwhOe6v-ihjeWwhCIsInpoaWRhX3NvdXJjZSI6ImVudGl0eSIsImNvbnRlbnRfaWQiOjEzMjM0NzQyNCwiY29udGVudF90eXBlIjoiQXJ0aWNsZSIsIm1hdGNoX29yZGVyIjoxLCJ6ZF90b2tlbiI6bnVsbH0.twBuUB-MrKxR-hiXaAQ9fOzWlgHrYnFkoNXm9H3YgjI&amp;zhida_source=entity">X 射线衍射</a>图（X 射线波长 ＝Å ）中，为什么不出现（100），（422），（511）衍射线?</p>
+</blockquote>
+<p>这是一个典型例题。</p>
+<p>我们这里引入一个概念：</p>
+<p><strong>系统消光</strong>：由于晶体内部的对称性，在符合布拉格方程的位置，出现衍射强度为0的现象。</p>
+<p>下分为两个种类，点阵系统消光（带心点阵，由于原子数大于1，使某些晶面相邻原子面之间插入了另一个晶面，引起散射波的相消干涉）和结构系统消光（由于晶体结构中存在螺旋轴、滑移面，导致消光）</p>
+<p>点阵消光：</p>
+<table>
+<thead>
+<tr>
+<th>布拉菲点阵</th>
+<th>存在的衍射线（HKL）</th>
+<th>不存在的衍射线（HKL）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>简单</td>
+<td>全部</td>
+<td>没有</td>
+</tr>
+<tr>
+<td>体心</td>
+<td>H+K+L=偶数</td>
+<td>H+K+L=奇数</td>
+</tr>
+<tr>
+<td>面心</td>
+<td>H，K，L全为奇数或偶数</td>
+<td>H，K，L不全为奇数或偶数</td>
+</tr>
+<tr>
+<td>底心</td>
+<td>H+K=偶数</td>
+<td>H+K=奇数</td>
+</tr>
+</tbody>
+</table>
+<h1 id="低角度移动和高角度移动说明什么"><a class="markdownIt-Anchor" href="#低角度移动和高角度移动说明什么"></a> 低角度移动和高角度移动说明什么？</h1>
+<p>在同一晶面、同一相结构、用一辐射源下，<strong>峰位向低角度移动通常对应 d 值增大，峰位向高角度移动通常对应 d 值减小</strong>。可从Bragg方程推导得出。</p>
+<p>这种方法只可用来作为单一峰的比较。若材料处理前后，峰归属发生变化或新相生成、峰重叠、择优取向改变，<strong>低峰出现就不可简单归为原有层间距扩大</strong>。正确的判断顺序是：先确认峰是否是同一晶面，再确认峰位提取方法是否一直，最后对比d值。</p>
+<p>但是尤其注意，<strong>对比d值必须要用同一种峰为提取和对比方式</strong>。例如，要用峰顶位置，就都用峰顶位置对比，不能峰顶、拟合中心、干态XRD、湿态XRD互相对比d值。尤其是容易吸水、溶剂化、离子插层的材料，还要特别说明测试时得到的层间距的状态。</p>
+<h1 id="002-003-006-和-00l-系列该怎样理解"><a class="markdownIt-Anchor" href="#002-003-006-和-00l-系列该怎样理解"></a> 002、003、006 和 00l 系列该怎样理解？</h1>
+<p><strong>很多层状材料会出现 00l 系列峰</strong>，例如 002、003、006 等。它们反映的是沿层状堆叠方向的周期性，但不同材料的晶体结构和空间群不同，d 值与晶胞参数 c 的关系也不同。常见判断方式是：先明确峰的 Miller 指数，再按对应结构模型换算。</p>
+<p>以层状双氢氧化物为例，003 和 006 峰都可能与层间重复周期有关。若 003 峰对应 d003，006 峰对应 d006，二者通常**需要和结构模型一起理解，而不是把每一个 d 值都直接叫作层间距。**对于 MXene 或石墨相氮化碳一类二维材料，002 或 001n 峰的低角度移动常被用于说明层间距扩展，但仍应结合 SEM、TEM、元素分析或插层化学来确认结构来源。</p>
+<h1 id="结尾"><a class="markdownIt-Anchor" href="#结尾"></a> 结尾</h1>
+<p>层间距的计算，一定要明确峰归属、晶面指数和结构模型，否则就没有意义。</p>
+<p>XRD层间距变化不能直接等同性能提升，最多“层间距变化可能参与了传输或结构调控过程”。它只能支持结构变化，不能单独用来说明完整机理。</p>
+<blockquote>
+<p>参考来源：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/FCIVfkR2wNmcoJ3uoPG0fA">https://mp.weixin.qq.com/s/FCIVfkR2wNmcoJ3uoPG0fA</a></p>
 </blockquote>
 
     </div>
@@ -318,21 +367,21 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/HEXO/" rel="tag">🏷️ HEXO</a>
-              <a href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag">🏷️ 插件</a>
+              <a href="/tags/%E6%9D%90%E6%96%99%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF/" rel="tag">🏷️ 材料分析技术</a>
+              <a href="/tags/XRD/" rel="tag">🏷️ XRD</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/20260424235141-59610.html" rel="prev" title="HEXO-添加本地搜索">
-                  <i class="fa fa-angle-left"></i> HEXO-添加本地搜索
+                <a href="/posts/20260529115303-62940.html" rel="prev" title="XRD概述">
+                  <i class="fa fa-angle-left"></i> XRD概述
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/20260425004955-57101.html" rel="next" title="HEXO-添加文章置顶">
-                  HEXO-添加文章置顶 <i class="fa fa-angle-right"></i>
+                <a href="/posts/20260530100401-10980.html" rel="next" title="HEXO-添加数学公式">
+                  HEXO-添加数学公式 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
