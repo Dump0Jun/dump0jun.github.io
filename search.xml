@@ -1,405 +1,776 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>XRD之常见计算公式合集</title>
-      <link href="/posts/20260530104537-9504.html"/>
-      <url>/posts/20260530104537-9504.html</url>
-      
-        <content type="html"><![CDATA[<p>X射线衍射（XRD）分析是材料实验不可或缺的测试方法，通过数据的计算，我们可以轻松得知材料的结晶度、晶粒尺寸、微观应变、织构等关键参数。</p><p>这里总结一些常用的XRD数学公式。</p><span id="more"></span>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>HEXO-建站简介</title>
+    <url>/posts/20260423202043-22508.html</url>
+    <content><![CDATA[<p><img src="https://bing.img.run/1920x1080.php" alt="封面" /></p>
+<h1 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h1>
+<p>个人的学习博客，使用Hexo搭建，主题改用使用Next，并且部署在Github，日后可能会更换更快的网站。本站将用来记录学习、备份操作与记录感悟。</p>
+<p>吸取之前的建站经验，尽量以简洁为主，少用图片以加快网站运行速度，多备份，并使用简单的页面布局。</p>
+<span id="more"></span>
+<blockquote>
+<p>NexT中文使用文档：<a href="https://theme-next.iissnan.com/">https://theme-next.iissnan.com/</a></p>
+<p>参考来源：</p>
+<p>【[馨客栈分享]使用Hexo博客搭建的个人博客，使用Next主题来进行优化改造】 <a href="https://www.bilibili.com/video/BV16W411t7mq/?p=16&amp;share_source=copy_web&amp;vd_source=57bb74376930424b7a2e91438825af1d">https://www.bilibili.com/video/BV16W411t7mq/?p=16&amp;share_source=copy_web&amp;vd_source=57bb74376930424b7a2e91438825af1d</a></p>
+<p><a href="https://www.simon96.online/2018/10/12/hexo-tutorial/">【持续更新】最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析 | 遇见西门</a></p>
+<p><a href="https://kfufys.github.io/posts/9aae07a1.html">Hexo-Next 主题个性化配置教程 | Smart Space</a></p>
+</blockquote>
+<h1 id="配置设置"><a class="markdownIt-Anchor" href="#配置设置"></a> 配置设置</h1>
+<h2 id="设置主题语言为中文"><a class="markdownIt-Anchor" href="#设置主题语言为中文"></a> 设置主题语言为中文</h2>
+<p>在[博客根目录]中，将_config.yml文件中的language设置为<code>zh-CN</code></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br></pre></td></tr></table></figure>
+<h2 id="设置头像"><a class="markdownIt-Anchor" href="#设置头像"></a> 设置头像</h2>
+<p>在[主题目录]中，修改主题目录下的_config.yml文件中的avatar选项。</p>
+<p>例如：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://pic1.imgdb.cn/item/69e85afb361615f002f5dfd0.jpg</span></span><br></pre></td></tr></table></figure>
+<p>此外，下面还有两个侧边栏设置，可以按需开启：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://pic1.imgdb.cn/item/69e85afb361615f002f5dfd0.jpg</span></span><br><span class="line">  <span class="attr">rounded:</span> <span class="literal">false</span>    <span class="comment"># 如果为true，头像将为圆形</span></span><br><span class="line">  <span class="attr">rotated:</span> <span class="literal">false</span>    <span class="comment"># 如果为true，鼠标互动，头像将会旋转</span></span><br></pre></td></tr></table></figure>
+<h2 id="设置首页是否可以阅读全文"><a class="markdownIt-Anchor" href="#设置首页是否可以阅读全文"></a> 设置首页是否可以阅读全文</h2>
+<ol>
+<li>第一种方法</li>
+</ol>
+<p>​	在文章想要展示的地方添加**<code>&lt;!-- more --&gt;</code><strong>。</strong>（极力推荐）**</p>
+<ol start="2">
+<li>修改config文件（未解决）</li>
+</ol>
+<h2 id="隐藏网页底部-powered-by-hexo-强力驱动"><a class="markdownIt-Anchor" href="#隐藏网页底部-powered-by-hexo-强力驱动"></a> 隐藏网页底部 powered By Hexo / 强力驱动</h2>
+<p>打开 <code>themes/next/layout/partials/footer.njk</code> 文件，找到如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> theme.<span class="property">footer</span>.<span class="property">powered</span> %&#125;</span><br><span class="line">  &lt;div <span class="keyword">class</span>=<span class="string">&quot;powered-by&quot;</span>&gt;</span><br><span class="line">    &#123;%- set next_site = <span class="string">&#x27;https://theme-next.js.org&#x27;</span> <span class="keyword">if</span> theme.<span class="property">scheme</span> === <span class="string">&#x27;Gemini&#x27;</span> <span class="keyword">else</span> <span class="string">&#x27;https://theme-next.js.org/&#x27;</span> + theme.<span class="property">scheme</span> | lower + <span class="string">&#x27;/&#x27;</span> %&#125;</span><br><span class="line">    &#123;&#123;- <span class="title function_">__</span>(<span class="string">&#x27;footer.powered&#x27;</span>, <span class="title function_">next_url</span>(<span class="string">&#x27;https://hexo.io&#x27;</span>, <span class="string">&#x27;Hexo&#x27;</span>) + <span class="string">&#x27; &amp; &#x27;</span> + <span class="title function_">next_url</span>(next_site, <span class="string">&#x27;NexT.&#x27;</span> + theme.<span class="property">scheme</span>)) &#125;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>把这段代码首尾分别加上：<code>&lt;!--</code> 和 <code>--&gt;</code>，或者直接删除。</p>
+<h2 id="添加文章阴影未解决"><a class="markdownIt-Anchor" href="#添加文章阴影未解决"></a> 添加文章阴影(未解决)</h2>
+<p>打开 <code>/themes/next/source/css/custom/custom.styl</code> 文件，添加如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.post &#123;</span><br><span class="line">    margin-top: 60px;</span><br><span class="line">    margin-bottom: 60px;</span><br><span class="line">    padding: 25px;</span><br><span class="line">    -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">    -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="浏览页面显示当前浏览进度"><a class="markdownIt-Anchor" href="#浏览页面显示当前浏览进度"></a> 浏览页面显示当前浏览进度</h2>
+<p>打开 <code>themes/next/\_config.yml</code> 文件，搜索 <code>scrollpercent</code>，把 false 改为 <code>true</code>。</p>
+<h2 id="设置网站图标"><a class="markdownIt-Anchor" href="#设置网站图标"></a> 设置网站图标</h2>
+<p>制作一个图案，在在 <a href="https://www.zhanid.com/tool/ico.html"><strong>ZHANID</strong></a> 转换成 ico 图标，下载到本地 <code>/themes/next/source/images</code> 文件夹里，并且修改主题配置文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  #small: /images/favicon-16x16-next.png</span><br><span class="line">  #medium: /images/favicon.ico</span><br><span class="line">  #apple_touch_icon: /images/apple-touch-icon-next.png</span><br><span class="line">  #safari_pinned_tab: /images/logo.svg</span><br><span class="line">  #android_manifest: /manifest.json</span><br></pre></td></tr></table></figure>
+<p>去掉 <code>medium</code> 前面的 <code>#</code>。</p>
+<h2 id="将文章底部的标签更换为图标️"><a class="markdownIt-Anchor" href="#将文章底部的标签更换为图标️"></a> 将文章底部的&quot;#&quot;标签更换为图标🏷️</h2>
+<p>打开 <code>/themes/next/layout/_macro/post.njk</code> 文件，修改以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if theme.tag_icon else &#x27;#&#x27;</span><br><span class="line"># 改为：</span><br><span class="line">if theme.tag_icon else &#x27;🏷️&#x27;</span><br></pre></td></tr></table></figure>
+<h2 id="添加代码复制按钮"><a class="markdownIt-Anchor" href="#添加代码复制按钮"></a> 添加代码复制按钮</h2>
+<p>在主题配置文件中搜索 <code>codeblock</code>，把默认配置改为如下配置：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">codeblock:</span></span><br><span class="line">  <span class="comment"># Code Highlight theme</span></span><br><span class="line">  <span class="comment"># All available themes: https://theme-next.js.org/highlight/</span></span><br><span class="line">  <span class="attr">theme:</span></span><br><span class="line">    <span class="attr">light:</span> <span class="string">default</span></span><br><span class="line">    <span class="attr">dark:</span> <span class="string">stackoverflow-dark</span></span><br><span class="line">  <span class="attr">prism:</span></span><br><span class="line">    <span class="attr">light:</span> <span class="string">prism</span></span><br><span class="line">    <span class="attr">dark:</span> <span class="string">prism-dark</span></span><br><span class="line">  <span class="comment"># Add copy button on codeblock</span></span><br><span class="line">  <span class="attr">copy_button:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="string">enable</span></span><br><span class="line">    <span class="attr">show_result:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># Available values: default | flat | mac</span></span><br><span class="line">    <span class="attr">style:</span> <span class="string">mac</span></span><br><span class="line">  <span class="comment"># Fold code block</span></span><br><span class="line">  <span class="attr">fold:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">height:</span> <span class="number">500</span></span><br></pre></td></tr></table></figure>
+<h2 id="添加顶部按钮"><a class="markdownIt-Anchor" href="#添加顶部按钮"></a> 添加顶部按钮</h2>
+<p>在主题配置文件中搜索 <code>back2top</code> ，把 <code>enable</code> 参数值设为 <code>true</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  enable: true</span><br><span class="line">  # Back to top in sidebar.</span><br><span class="line">  sidebar: false</span><br><span class="line">  # Scroll percent label in b2t button.</span><br><span class="line">  scrollpercent: true</span><br></pre></td></tr></table></figure>
+<h2 id="各版块透明度修改未实践"><a class="markdownIt-Anchor" href="#各版块透明度修改未实践"></a> 各版块透明度修改（未实践）</h2>
+<h3 id="内容板块透明化"><a class="markdownIt-Anchor" href="#内容板块透明化"></a> 内容板块透明化</h3>
+<p>博客根目录 <code>themes\next\source\css_schemes\Pisces_layout.styl</code> 文件 <code>.content-wrap</code> 标签下 <code>background: white</code> 修改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); //0.7是透明度</span><br></pre></td></tr></table></figure>
+<p>博客根目录 <code>themes\next\source\css_schemes\Gemini\index.styl</code> 文件 <code>.post-block</code> 标签下的 <code>background: white</code> 修改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); //0.7是透明度</span><br></pre></td></tr></table></figure>
+<h3 id="分页板块透明化"><a class="markdownIt-Anchor" href="#分页板块透明化"></a> 分页板块透明化</h3>
+<p>博客根目录 <code>themes\next\source\css_schemes\Gemini\index.styl</code> 文件 <code>.pagination</code> 标签下的 <code>background: white</code> 修改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); //0.7是透明度</span><br></pre></td></tr></table></figure>
+<h3 id="菜单栏板块透明化"><a class="markdownIt-Anchor" href="#菜单栏板块透明化"></a> 菜单栏板块透明化</h3>
+<p>博客根目录 <code>themes\next\source\css_schemes\Pisces_layout.styl</code> 文件 <code>.header-inner</code> 标签下 <code>background: white</code> 修改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); //0.7是透明度</span><br></pre></td></tr></table></figure>
+<p>博客根目录 <code>themes\next\source\css_schemes\Pisces_sidebar.styl</code> 文件 <code>.sidebar</code> 标签下增加一行:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">opacity: 0.7; // 0.7透明度自己选择</span><br></pre></td></tr></table></figure>
+<h2 id="页脚添加访客量未解决"><a class="markdownIt-Anchor" href="#页脚添加访客量未解决"></a> 页脚添加访客量（未解决）</h2>
+<p>在 footer 模板文件（<code>themes/next/layout/_partials/footer.njk</code>）底部添加以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;powered-by&quot;&gt;</span><br><span class="line">    &lt;script async src=&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">        本站访客数:&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">    &lt;span class=&quot;post-meta-divider&quot;&gt;|&lt;/span&gt;</span><br><span class="line">    &lt;span id=&quot;busuanzi_container_site_pv&quot;&gt;</span><br><span class="line">        本站访问量&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="更改默认-google-字体库"><a class="markdownIt-Anchor" href="#更改默认-google-字体库"></a> 更改默认 Google 字体库</h2>
+<blockquote>
+<p>访问网站总是会耗费一大部分的时间在加载 <code>google</code> 字体库上, 而且经常加载不成功。我们可以用国内的 <code>CDN库</code> 来替代主题中的 <code>google</code> 字体库。</p>
+</blockquote>
+<p>打开主题配置文件，搜索 <code>Font Settings</code> 字体库设置板块，把字体库服务器 <code>host</code> 改为国内CDN库（<a href="https://kfufys.github.io/posts/fonts.useso.com">fonts.useso.com</a>）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Uri of fonts host, e.g. https://fonts.googleapis.com (Default).</span><br><span class="line">#host:</span><br><span class="line">host: fonts.useso.com</span><br></pre></td></tr></table></figure>
+<h2 id="添加博客背景图片"><a class="markdownIt-Anchor" href="#添加博客背景图片"></a> 添加博客背景图片</h2>
+<ul>
+<li>将自己的背景图片命名为<code>background.png</code>保存在<code>\themes\next\source\images</code>路径下</li>
+<li>进入路径<code>\themes\next\source\css\_schemes</code>可见其中有四个文件<a href="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210204340.png"><img src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210204340.png" alt="四个文件" />四个文件</a></li>
+<li>选择你自己的主题，本文以Gemini为例，使用记事本打开<code>index.styl</code></li>
+<li>复制下列代码在<code>Desktop layout styles.</code> 如图。</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 整体背景设置</span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>:<span class="built_in">url</span>(/images/background.png);<span class="comment">// 设定背景图片,images同处于source文件夹下</span></span><br><span class="line">	<span class="attribute">background-repeat</span>: no-repeat;<span class="comment">// 设定背景图片非重复填充</span></span><br><span class="line">	<span class="attribute">background-attachment</span>:fixed;<span class="comment">// 设置背景图片不随页面滚动</span></span><br><span class="line">	<span class="attribute">background-position</span>:<span class="number">50%</span> <span class="number">50%</span>;<span class="comment">// 设置背景图片位置</span></span><br><span class="line">	<span class="attribute">background-size</span>: cover// 设置保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置透明度</span></span><br><span class="line">.main-inner&#123;</span><br><span class="line">	<span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line">.header-inner&#123;</span><br><span class="line">	<span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">	<span class="attribute">z-index</span>: <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="设置边框圆角"><a class="markdownIt-Anchor" href="#设置边框圆角"></a> 设置边框圆角</h2>
+<h3 id="更改背景图未实践"><a class="markdownIt-Anchor" href="#更改背景图未实践"></a> 更改背景图（未实践）</h3>
+<p>新版本已没有<code>custom.styl</code>，故需要新建文件于<code>[博客根目录]/source/_data/styles.styl</code></p>
+<p>打开<code>styles.styl</code>，添加如下：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="comment">//背景图片设置</span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(/images/background.jpg);</span><br><span class="line">    <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">    <span class="attribute">background-attachment</span>: fixed;</span><br><span class="line">    <span class="attribute">background-size</span>: <span class="number">100%</span> <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>background-image:url</code> 为图片路径，可以直接使用链接，也可以是图片路径（将自定义图片放入<code>hexo\public\images</code>路径下）</li>
+<li><code>background-repeat</code>：若果背景图片不能全屏，那么是否平铺显示，充满屏幕</li>
+<li><code>background-attachment</code>：背景是否随着网页上下滚动而滚动，fixed 为固定</li>
+<li><code>background-size</code>：图片展示大小，这里设置 100%，100% 的意义为：如果背景图片不能全屏，那么是否通过拉伸的方式将背景强制拉伸至全屏显示</li>
+</ul>
+<p>接下来打开<code>hexo/themes/next/_config.yml</code>，即next主题<a href="https://zhida.zhihu.com/search?content_id=150525781&amp;content_type=Article&amp;match_order=1&amp;q=%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3Nzc0NDk2MzksInEiOiLphY3nva7mlofku7YiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoxNTA1MjU3ODEsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.cCEKYo4ykBpWCgd7L9ZKpQztNorAO-nK3JZ5lrBgbGM&amp;zhida_source=entity">配置文件</a>，修改如下：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">custom_file_path:</span><br><span class="line">  </span><br><span class="line">  style: source/_data/styles.styl</span><br></pre></td></tr></table></figure>
+<p>记得保存。</p>
+<h3 id="博客页面透明化"><a class="markdownIt-Anchor" href="#博客页面透明化"></a> 博客页面透明化</h3>
+<p>在<code>styles.styl</code>里添加如下内容：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="comment">//文章内容的透明度设置</span></span><br><span class="line"><span class="selector-class">.content-wrap</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//侧边框的透明度设置</span></span><br><span class="line"><span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: transparent;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//菜单栏的透明度设置</span></span><br><span class="line"><span class="selector-class">.header-inner</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.9</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="边框圆角"><a class="markdownIt-Anchor" href="#边框圆角"></a> 边框圆角</h3>
+<p>打开<code>hexo/themes/next/_config.yml</code>，即主题配置，修改如下：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  </span><br><span class="line">  <span class="attr">variable:</span> <span class="string">source/_data/variables.styl</span></span><br></pre></td></tr></table></figure>
+<p>在之前新建的<code>_data</code>目录下新建<code>variables.styl</code>，类似新建<code>styles.styl</code>。打开<code>variables.styl</code>，添加如下：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">// 圆角设置</span><br><span class="line">$border-radius-inner     = 20px 20px 20px 20px;</span><br><span class="line">$border-radius           = 20px;</span><br></pre></td></tr></table></figure>
+<p>但是后发现并未改为圆角，所以尝试了下将黑色改为透明，成功实现。具体是修改 /themes/next/source/css/_variables/Gemini.styl 内代码,将 $body-bg-color赋值为透明 transparent。</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Variables of Gemini scheme</span></span><br><span class="line"><span class="comment">// ==================================================</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;Pisces.styl&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Settings for some of the most global styles.</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line"><span class="variable">$body</span>-bg-<span class="attribute">color</span>           = <span class="number">#eee</span>;</span><br><span class="line"><span class="comment">// $body-bg-color           = transparent;</span></span><br><span class="line"><span class="comment">// Borders.</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line"><span class="variable">$box</span>-shadow-inner        = <span class="number">0</span> <span class="number">2px</span> <span class="number">2px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>), <span class="number">0</span> <span class="number">3px</span> <span class="number">1px</span> -<span class="number">2px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">06</span>), <span class="number">0</span> <span class="number">1px</span> <span class="number">5px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>);</span><br><span class="line"><span class="variable">$box</span>-shadow              = <span class="number">0</span> <span class="number">2px</span> <span class="number">2px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>), <span class="number">0</span> <span class="number">3px</span> <span class="number">1px</span> -<span class="number">2px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">06</span>), <span class="number">0</span> <span class="number">1px</span> <span class="number">5px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>), <span class="number">0</span> -<span class="number">1px</span> .<span class="number">5px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">09</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// $border-radius-inner     = 20px;</span></span><br><span class="line"><span class="comment">// $border-radius           = 20px;</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$border</span>-radius-inner     = initial;</span><br><span class="line"><span class="variable">$border</span>-radius           = initial;</span><br><span class="line"><span class="comment">// $border-radius-inner     = 0 0 3px 3px;</span></span><br><span class="line"><span class="comment">// $border-radius           = 3px;</span></span><br></pre></td></tr></table></figure>
+<h2 id="设置侧边目录自动展开"><a class="markdownIt-Anchor" href="#设置侧边目录自动展开"></a> 设置侧边目录自动展开</h2>
+<p>修改主题配置文件，搜寻<code>toc</code>，修改配置：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Automatically add list number to toc.</span></span><br><span class="line">  <span class="attr">number:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># If true, all words will placed on next lines if header width longer then sidebar width.</span></span><br><span class="line">  <span class="attr">wrap:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># If true, all level of TOC in a post will be displayed, rather than the activated part of it.</span></span><br><span class="line">  <span class="attr">expand_all:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Maximum heading depth of generated toc.</span></span><br><span class="line">  <span class="attr">max_depth:</span> <span class="number">6</span></span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
-          
-          <category> 科研研究 </category>
-          
-          <category> XRD </category>
-          
-          <category> 数学公式 </category>
-          
+        <category>技术杂谈</category>
+        <category>HEXO</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 材料分析技术 </tag>
-            
-            <tag> XRD </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>HEXO-添加数学公式</title>
-      <link href="/posts/20260530100401-10980.html"/>
-      <url>/posts/20260530100401-10980.html</url>
-      
-        <content type="html"><![CDATA[<p>在分析Bragg方程的时候，发现Next没有渲染方程，导致网页输出出现不显示的问题，因此使用KaTeX插件，以解决该问题。</p><span id="more"></span><h1 id="安装插件"><a class="markdownIt-Anchor" href="#安装插件"></a> 安装插件</h1><p>KaTeX的<a href="https://theme-next.js.org/muse/docs/third-party-services/math-equations.html?highlight=math">官方文档</a></p><ol><li><p>安装插件hexo-renderer-markdown-it-plus：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked</span><br><span class="line">npm i hexo-renderer-markdown-it-plus</span><br></pre></td></tr></table></figure></li><li><p>或者hexo-renderer-markdown-it：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked</span><br><span class="line">npm i hexo-renderer-markdown-it</span><br></pre></td></tr></table></figure><p>需要注意，如果使用hexo-renderer-markdown-it的话，需要安装markdown-it-katex：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i markdown-it-katex</span><br></pre></td></tr></table></figure></li></ol><h1 id="修改配置"><a class="markdownIt-Anchor" href="#修改配置"></a> 修改配置</h1><ol><li><p>修改主题配置：在Next config file 下打开katex。</p><p><img src="https://pic1.imgdb.cn/item/6a1a4769dd7746a9b03478fa.png" alt="数学公式配置文件" /></p><p>将enable后的值改为true，然后copy_text也可以改为true，这个是复制的时候要不要带上数学符号，因为带上之后，可以让读的人直接复制粘贴到markdown文档里面，轻松复现公式。不打开的话，复制下来是乱码。<br />every_page可以打开，打开的话就是每页我都渲染，我是嫌弃麻烦的人，我直接每页都渲染。<br />tags这个参数建议为ams，可以打开自动编号的功能，方便使用。</p></li><li><p>添加插件配置，在主题配置文件的最后加入：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># config of hexo-renderer-markdown-it</span></span><br><span class="line"><span class="attr">markdown:</span></span><br><span class="line"><span class="attr">render:</span></span><br><span class="line">   <span class="attr">html:</span> <span class="literal">true</span></span><br><span class="line">   <span class="attr">xhtmlOut:</span> <span class="literal">false</span></span><br><span class="line">   <span class="attr">breaks:</span> <span class="literal">true</span></span><br><span class="line">   <span class="attr">linkify:</span> <span class="literal">true</span></span><br><span class="line">   <span class="attr">typographer:</span> <span class="literal">true</span></span><br><span class="line">   <span class="attr">quotes:</span> <span class="string">&#x27;“”‘’&#x27;</span></span><br><span class="line"><span class="attr">plugins:</span></span><br><span class="line">   <span class="bullet">-</span> <span class="string">markdown-it-katex</span></span><br></pre></td></tr></table></figure><h2 id="已知的问题"><a class="markdownIt-Anchor" href="#已知的问题"></a> 已知的问题</h2><ol><li>使用$$…$$这个需要新的空行才可以，这个我之前就遇见过。</li><li>开头和结尾之间<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>…</mo></mrow><annotation encoding="application/x-tex">…</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.12em;vertical-align:0em;"></span><span class="minner">…</span></span></span></span>不能有空格</li><li>如果你在文章标题中使用语法，它将不会显示。</li><li>如果在文章中的小标题使用即（## heading），它会在页面后台的table里面重复显示三次</li></ol></li></ol>]]></content>
-      
-      
+      <tags>
+        <tag>HEXO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>XRD之常见计算公式合集</title>
+    <url>/posts/20260530104537-9504.html</url>
+    <content><![CDATA[<p>X射线衍射（XRD）分析是材料实验不可或缺的测试方法，通过数据的计算，我们可以轻松得知材料的结晶度、晶粒尺寸、微观应变、织构等关键参数。</p>
+<p>这里总结一些常用的XRD数学公式。</p>
+<span id="more"></span>
+]]></content>
       <categories>
-          
-          <category> 技术杂谈 </category>
-          
-          <category> HEXO </category>
-          
+        <category>科研研究</category>
+        <category>XRD</category>
+        <category>数学公式</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> HEXO </tag>
-            
-            <tag> 插件 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>XRD之计算层间距</title>
-      <link href="/posts/20260529181140-23720.html"/>
-      <url>/posts/20260529181140-23720.html</url>
-      
-        <content type="html"><![CDATA[<p>计算公式：</p><p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><mo>=</mo><mfrac><mrow><mi>n</mi><mi>λ</mi></mrow><mrow><mn>2</mn><mi>s</mi><mi>i</mi><mi>n</mi><mi>θ</mi></mrow></mfrac><mtext>​</mtext></mrow><annotation encoding="application/x-tex">d= \frac{nλ}{2sinθ} ​</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.05744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathnormal">s</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="mord mathnormal">λ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord">​</span></span></span></span></span></p><ul><li>n 为衍射级数（通常取1，计算层间距时使用一级衍射峰）</li><li>λ为入射X射线波长（常见Cu Kα靶，λ=0.15418nm）</li><li>θ为衍射角（注意：实验测得的2θ角需转换为θ）</li></ul><span id="more"></span><h1 id="衍射消光"><a class="markdownIt-Anchor" href="#衍射消光"></a> 衍射消光</h1><blockquote><p>（1997、一、3）：<a href="https://zhida.zhihu.com/search?content_id=132347424&amp;content_type=Article&amp;match_order=1&amp;q=%E9%9D%A2%E5%BF%83%E7%AB%8B%E6%96%B9&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAyMjg2NjAsInEiOiLpnaLlv4Pnq4vmlrkiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoxMzIzNDc0MjQsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.QfMId6AqYU_fgPWPGFgEq-FwrDM9wh2Ae-Q5esknikM&amp;zhida_source=entity">面心立方</a>的 Cu 单晶（晶格常数 Å ）的 <a href="https://zhida.zhihu.com/search?content_id=132347424&amp;content_type=Article&amp;match_order=1&amp;q=X+%E5%B0%84%E7%BA%BF%E8%A1%8D%E5%B0%84&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAyMjg2NjAsInEiOiJYIOWwhOe6v-ihjeWwhCIsInpoaWRhX3NvdXJjZSI6ImVudGl0eSIsImNvbnRlbnRfaWQiOjEzMjM0NzQyNCwiY29udGVudF90eXBlIjoiQXJ0aWNsZSIsIm1hdGNoX29yZGVyIjoxLCJ6ZF90b2tlbiI6bnVsbH0.twBuUB-MrKxR-hiXaAQ9fOzWlgHrYnFkoNXm9H3YgjI&amp;zhida_source=entity">X 射线衍射</a>图（X 射线波长 ＝Å ）中，为什么不出现（100），（422），（511）衍射线?</p></blockquote><p>这是一个典型例题。</p><p>我们这里引入一个概念：</p><p><strong>系统消光</strong>：由于晶体内部的对称性，在符合布拉格方程的位置，出现衍射强度为0的现象。</p><p>下分为两个种类，点阵系统消光（带心点阵，由于原子数大于1，使某些晶面相邻原子面之间插入了另一个晶面，引起散射波的相消干涉）和结构系统消光（由于晶体结构中存在螺旋轴、滑移面，导致消光）</p><p>点阵消光：</p><table><thead><tr><th>布拉菲点阵</th><th>存在的衍射线（HKL）</th><th>不存在的衍射线（HKL）</th></tr></thead><tbody><tr><td>简单</td><td>全部</td><td>没有</td></tr><tr><td>体心</td><td>H+K+L=偶数</td><td>H+K+L=奇数</td></tr><tr><td>面心</td><td>H，K，L全为奇数或偶数</td><td>H，K，L不全为奇数或偶数</td></tr><tr><td>底心</td><td>H+K=偶数</td><td>H+K=奇数</td></tr></tbody></table><h1 id="低角度移动和高角度移动说明什么"><a class="markdownIt-Anchor" href="#低角度移动和高角度移动说明什么"></a> 低角度移动和高角度移动说明什么？</h1><p>在同一晶面、同一相结构、用一辐射源下，<strong>峰位向低角度移动通常对应 d 值增大，峰位向高角度移动通常对应 d 值减小</strong>。可从Bragg方程推导得出。</p><p>这种方法只可用来作为单一峰的比较。若材料处理前后，峰归属发生变化或新相生成、峰重叠、择优取向改变，<strong>低峰出现就不可简单归为原有层间距扩大</strong>。正确的判断顺序是：先确认峰是否是同一晶面，再确认峰位提取方法是否一直，最后对比d值。</p><p>但是尤其注意，<strong>对比d值必须要用同一种峰为提取和对比方式</strong>。例如，要用峰顶位置，就都用峰顶位置对比，不能峰顶、拟合中心、干态XRD、湿态XRD互相对比d值。尤其是容易吸水、溶剂化、离子插层的材料，还要特别说明测试时得到的层间距的状态。</p><h1 id="002-003-006-和-00l-系列该怎样理解"><a class="markdownIt-Anchor" href="#002-003-006-和-00l-系列该怎样理解"></a> 002、003、006 和 00l 系列该怎样理解？</h1><p><strong>很多层状材料会出现 00l 系列峰</strong>，例如 002、003、006 等。它们反映的是沿层状堆叠方向的周期性，但不同材料的晶体结构和空间群不同，d 值与晶胞参数 c 的关系也不同。常见判断方式是：先明确峰的 Miller 指数，再按对应结构模型换算。</p><p>以层状双氢氧化物为例，003 和 006 峰都可能与层间重复周期有关。若 003 峰对应 d003，006 峰对应 d006，二者通常**需要和结构模型一起理解，而不是把每一个 d 值都直接叫作层间距。**对于 MXene 或石墨相氮化碳一类二维材料，002 或 001n 峰的低角度移动常被用于说明层间距扩展，但仍应结合 SEM、TEM、元素分析或插层化学来确认结构来源。</p><h1 id="结尾"><a class="markdownIt-Anchor" href="#结尾"></a> 结尾</h1><p>层间距的计算，一定要明确峰归属、晶面指数和结构模型，否则就没有意义。</p><p>XRD层间距变化不能直接等同性能提升，最多“层间距变化可能参与了传输或结构调控过程”。它只能支持结构变化，不能单独用来说明完整机理。</p><blockquote><p>参考来源：<a href="https://mp.weixin.qq.com/s/FCIVfkR2wNmcoJ3uoPG0fA">https://mp.weixin.qq.com/s/FCIVfkR2wNmcoJ3uoPG0fA</a></p></blockquote>]]></content>
-      
-      
+      <tags>
+        <tag>材料分析技术</tag>
+        <tag>XRD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HEXO-添加数学公式</title>
+    <url>/posts/20260530100401-10980.html</url>
+    <content><![CDATA[<p>在分析Bragg方程的时候，发现Next没有渲染方程，导致网页输出出现不显示的问题，因此使用KaTeX插件，以解决该问题。</p>
+<span id="more"></span>
+<h1 id="安装插件"><a class="markdownIt-Anchor" href="#安装插件"></a> 安装插件</h1>
+<p>KaTeX的<a href="https://theme-next.js.org/muse/docs/third-party-services/math-equations.html?highlight=math">官方文档</a></p>
+<ol>
+<li>
+<p>安装插件hexo-renderer-markdown-it-plus：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm un hexo-renderer-marked</span><br><span class="line">npm i hexo-renderer-markdown-it-plus</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>或者hexo-renderer-markdown-it：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm un hexo-renderer-marked</span><br><span class="line">npm i hexo-renderer-markdown-it</span><br></pre></td></tr></table></figure>
+<p>需要注意，如果使用hexo-renderer-markdown-it的话，需要安装markdown-it-katex：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i markdown-it-katex</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="修改配置"><a class="markdownIt-Anchor" href="#修改配置"></a> 修改配置</h1>
+<ol>
+<li>
+<p>修改主题配置：在Next config file 下打开katex。</p>
+<p><img src="https://pic1.imgdb.cn/item/6a1a4769dd7746a9b03478fa.png" alt="数学公式配置文件" /></p>
+<p>将enable后的值改为true，然后copy_text也可以改为true，这个是复制的时候要不要带上数学符号，因为带上之后，可以让读的人直接复制粘贴到markdown文档里面，轻松复现公式。不打开的话，复制下来是乱码。<br />
+every_page可以打开，打开的话就是每页我都渲染，我是嫌弃麻烦的人，我直接每页都渲染。<br />
+tags这个参数建议为ams，可以打开自动编号的功能，方便使用。</p>
+</li>
+<li>
+<p>添加插件配置，在主题配置文件的最后加入：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># config of hexo-renderer-markdown-it</span></span><br><span class="line"><span class="attr">markdown:</span></span><br><span class="line"><span class="attr">render:</span></span><br><span class="line">   <span class="attr">html:</span> <span class="literal">true</span></span><br><span class="line">   <span class="attr">xhtmlOut:</span> <span class="literal">false</span></span><br><span class="line">   <span class="attr">breaks:</span> <span class="literal">true</span></span><br><span class="line">   <span class="attr">linkify:</span> <span class="literal">true</span></span><br><span class="line">   <span class="attr">typographer:</span> <span class="literal">true</span></span><br><span class="line">   <span class="attr">quotes:</span> <span class="string">&#x27;“”‘’&#x27;</span></span><br><span class="line"><span class="attr">plugins:</span></span><br><span class="line">   <span class="bullet">-</span> <span class="string">markdown-it-katex</span></span><br></pre></td></tr></table></figure>
+<h2 id="已知的问题"><a class="markdownIt-Anchor" href="#已知的问题"></a> 已知的问题</h2>
+<ol>
+<li>使用$$…$$这个需要新的空行才可以，这个我之前就遇见过。</li>
+<li>开头和结尾之间<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>…</mo></mrow><annotation encoding="application/x-tex">…</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.12em;vertical-align:0em;"></span><span class="minner">…</span></span></span></span>不能有空格</li>
+<li>如果你在文章标题中使用语法，它将不会显示。</li>
+<li>如果在文章中的小标题使用即（## heading），它会在页面后台的table里面重复显示三次</li>
+</ol>
+</li>
+</ol>
+]]></content>
       <categories>
-          
-          <category> 科研研究 </category>
-          
-          <category> XRD </category>
-          
-          <category> 层间距 </category>
-          
+        <category>技术杂谈</category>
+        <category>HEXO</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 材料分析技术 </tag>
-            
-            <tag> XRD </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>XRD概述</title>
-      <link href="/posts/20260529115303-62940.html"/>
-      <url>/posts/20260529115303-62940.html</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>XRD（X-ray Diffraction），X射线分析衍射，分析材料晶体结构的重要表征方法。</p></blockquote><span id="more"></span><h1 id="基本概述"><a class="markdownIt-Anchor" href="#基本概述"></a> 基本概述</h1><p>XRD是材料分析领域必不可少的物相分析手段。固体大多是内部长程有序，会形成晶胞（晶体中最小的重复单元）。一旦有了规则的原子面，相邻晶面间就有了固定的D值（晶面间距）。</p><p>当入射波与原子面间距满足 nλ=2dsinθ（布拉格定律）时，就会发生干涉，探测器中就会出现衍射峰。（特定角度和晶面间距刚好匹配）</p><p>由于每种晶体材料都有独特的衍射花样，所以XRD最常用来识别物相。</p><p>依此，XRD最核心的任务是确定制备材料是不是目标物相、是不是单相、是否具有晶体结构。</p><p><strong>精炼</strong></p><ul><li>使用XRD的前提是固体内部是重复规律的。</li><li>满足布拉格定律，才会得到衍射峰。</li><li>不只可以分析单相，也可以用来分析混相，因为他们的图谱是机械叠加的。</li><li>适合分析较大体积范围内的平均信息，不适合看细小的表面局部。</li></ul><blockquote><p>参考来源：<a href="https://mp.weixin.qq.com/s/mH-NhqI6T0_G3LqCnVK41g">https://mp.weixin.qq.com/s/mH-NhqI6T0_G3LqCnVK41g</a></p></blockquote>]]></content>
-      
-      
+      <tags>
+        <tag>HEXO</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>XRD之计算层间距</title>
+    <url>/posts/20260529181140-23720.html</url>
+    <content><![CDATA[<p>计算公式：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><mo>=</mo><mfrac><mrow><mi>n</mi><mi>λ</mi></mrow><mrow><mn>2</mn><mi>s</mi><mi>i</mi><mi>n</mi><mi>θ</mi></mrow></mfrac><mtext>​</mtext></mrow><annotation encoding="application/x-tex">d= \frac{nλ}{2sinθ}
+ ​
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.05744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathnormal">s</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="mord mathnormal">λ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord">​</span></span></span></span></span></p>
+<ul>
+<li>n 为衍射级数（通常取1，计算层间距时使用一级衍射峰）</li>
+<li>λ为入射X射线波长（常见Cu Kα靶，λ=0.15418nm）</li>
+<li>θ为衍射角（注意：实验测得的2θ角需转换为θ）</li>
+</ul>
+<span id="more"></span>
+<h1 id="衍射消光"><a class="markdownIt-Anchor" href="#衍射消光"></a> 衍射消光</h1>
+<blockquote>
+<p>（1997、一、3）：<a href="https://zhida.zhihu.com/search?content_id=132347424&amp;content_type=Article&amp;match_order=1&amp;q=%E9%9D%A2%E5%BF%83%E7%AB%8B%E6%96%B9&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAyMjg2NjAsInEiOiLpnaLlv4Pnq4vmlrkiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoxMzIzNDc0MjQsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.QfMId6AqYU_fgPWPGFgEq-FwrDM9wh2Ae-Q5esknikM&amp;zhida_source=entity">面心立方</a>的 Cu 单晶（晶格常数 Å ）的 <a href="https://zhida.zhihu.com/search?content_id=132347424&amp;content_type=Article&amp;match_order=1&amp;q=X+%E5%B0%84%E7%BA%BF%E8%A1%8D%E5%B0%84&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAyMjg2NjAsInEiOiJYIOWwhOe6v-ihjeWwhCIsInpoaWRhX3NvdXJjZSI6ImVudGl0eSIsImNvbnRlbnRfaWQiOjEzMjM0NzQyNCwiY29udGVudF90eXBlIjoiQXJ0aWNsZSIsIm1hdGNoX29yZGVyIjoxLCJ6ZF90b2tlbiI6bnVsbH0.twBuUB-MrKxR-hiXaAQ9fOzWlgHrYnFkoNXm9H3YgjI&amp;zhida_source=entity">X 射线衍射</a>图（X 射线波长 ＝Å ）中，为什么不出现（100），（422），（511）衍射线?</p>
+</blockquote>
+<p>这是一个典型例题。</p>
+<p>我们这里引入一个概念：</p>
+<p><strong>系统消光</strong>：由于晶体内部的对称性，在符合布拉格方程的位置，出现衍射强度为0的现象。</p>
+<p>下分为两个种类，点阵系统消光（带心点阵，由于原子数大于1，使某些晶面相邻原子面之间插入了另一个晶面，引起散射波的相消干涉）和结构系统消光（由于晶体结构中存在螺旋轴、滑移面，导致消光）</p>
+<p>点阵消光：</p>
+<table>
+<thead>
+<tr>
+<th>布拉菲点阵</th>
+<th>存在的衍射线（HKL）</th>
+<th>不存在的衍射线（HKL）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>简单</td>
+<td>全部</td>
+<td>没有</td>
+</tr>
+<tr>
+<td>体心</td>
+<td>H+K+L=偶数</td>
+<td>H+K+L=奇数</td>
+</tr>
+<tr>
+<td>面心</td>
+<td>H，K，L全为奇数或偶数</td>
+<td>H，K，L不全为奇数或偶数</td>
+</tr>
+<tr>
+<td>底心</td>
+<td>H+K=偶数</td>
+<td>H+K=奇数</td>
+</tr>
+</tbody>
+</table>
+<h1 id="低角度移动和高角度移动说明什么"><a class="markdownIt-Anchor" href="#低角度移动和高角度移动说明什么"></a> 低角度移动和高角度移动说明什么？</h1>
+<p>在同一晶面、同一相结构、用一辐射源下，<strong>峰位向低角度移动通常对应 d 值增大，峰位向高角度移动通常对应 d 值减小</strong>。可从Bragg方程推导得出。</p>
+<p>这种方法只可用来作为单一峰的比较。若材料处理前后，峰归属发生变化或新相生成、峰重叠、择优取向改变，<strong>低峰出现就不可简单归为原有层间距扩大</strong>。正确的判断顺序是：先确认峰是否是同一晶面，再确认峰位提取方法是否一直，最后对比d值。</p>
+<p>但是尤其注意，<strong>对比d值必须要用同一种峰为提取和对比方式</strong>。例如，要用峰顶位置，就都用峰顶位置对比，不能峰顶、拟合中心、干态XRD、湿态XRD互相对比d值。尤其是容易吸水、溶剂化、离子插层的材料，还要特别说明测试时得到的层间距的状态。</p>
+<h1 id="002-003-006-和-00l-系列该怎样理解"><a class="markdownIt-Anchor" href="#002-003-006-和-00l-系列该怎样理解"></a> 002、003、006 和 00l 系列该怎样理解？</h1>
+<p><strong>很多层状材料会出现 00l 系列峰</strong>，例如 002、003、006 等。它们反映的是沿层状堆叠方向的周期性，但不同材料的晶体结构和空间群不同，d 值与晶胞参数 c 的关系也不同。常见判断方式是：先明确峰的 Miller 指数，再按对应结构模型换算。</p>
+<p>以层状双氢氧化物为例，003 和 006 峰都可能与层间重复周期有关。若 003 峰对应 d003，006 峰对应 d006，二者通常**需要和结构模型一起理解，而不是把每一个 d 值都直接叫作层间距。**对于 MXene 或石墨相氮化碳一类二维材料，002 或 001n 峰的低角度移动常被用于说明层间距扩展，但仍应结合 SEM、TEM、元素分析或插层化学来确认结构来源。</p>
+<h1 id="结尾"><a class="markdownIt-Anchor" href="#结尾"></a> 结尾</h1>
+<p>层间距的计算，一定要明确峰归属、晶面指数和结构模型，否则就没有意义。</p>
+<p>XRD层间距变化不能直接等同性能提升，最多“层间距变化可能参与了传输或结构调控过程”。它只能支持结构变化，不能单独用来说明完整机理。</p>
+<blockquote>
+<p>参考来源：<a href="https://mp.weixin.qq.com/s/FCIVfkR2wNmcoJ3uoPG0fA">https://mp.weixin.qq.com/s/FCIVfkR2wNmcoJ3uoPG0fA</a></p>
+</blockquote>
+]]></content>
       <categories>
-          
-          <category> 科研研究 </category>
-          
-          <category> XRD </category>
-          
+        <category>科研研究</category>
+        <category>XRD</category>
+        <category>层间距</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 材料分析技术 </tag>
-            
-            <tag> XRD </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>《为人三会》</title>
-      <link href="/posts/20260427164805-8649.html"/>
-      <url>/posts/20260427164805-8649.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
+      <tags>
+        <tag>材料分析技术</tag>
+        <tag>XRD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>XRD概述</title>
+    <url>/posts/20260529115303-62940.html</url>
+    <content><![CDATA[<blockquote>
+<p>XRD（X-ray Diffraction），X射线分析衍射，分析材料晶体结构的重要表征方法。</p>
+</blockquote>
+<span id="more"></span>
+<h1 id="基本概述"><a class="markdownIt-Anchor" href="#基本概述"></a> 基本概述</h1>
+<p>XRD是材料分析领域必不可少的物相分析手段。固体大多是内部长程有序，会形成晶胞（晶体中最小的重复单元）。一旦有了规则的原子面，相邻晶面间就有了固定的D值（晶面间距）。</p>
+<p>当入射波与原子面间距满足 nλ=2dsinθ（布拉格定律）时，就会发生干涉，探测器中就会出现衍射峰。（特定角度和晶面间距刚好匹配）</p>
+<p>由于每种晶体材料都有独特的衍射花样，所以XRD最常用来识别物相。</p>
+<p>依此，XRD最核心的任务是确定制备材料是不是目标物相、是不是单相、是否具有晶体结构。</p>
+<p><strong>精炼</strong></p>
+<ul>
+<li>使用XRD的前提是固体内部是重复规律的。</li>
+<li>满足布拉格定律，才会得到衍射峰。</li>
+<li>不只可以分析单相，也可以用来分析混相，因为他们的图谱是机械叠加的。</li>
+<li>适合分析较大体积范围内的平均信息，不适合看细小的表面局部。</li>
+</ul>
+<blockquote>
+<p>参考来源：<a href="https://mp.weixin.qq.com/s/mH-NhqI6T0_G3LqCnVK41g">https://mp.weixin.qq.com/s/mH-NhqI6T0_G3LqCnVK41g</a></p>
+</blockquote>
+]]></content>
       <categories>
-          
-          <category> 终身学习 </category>
-          
+        <category>科研研究</category>
+        <category>XRD</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 读书 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>MD-一些语法备忘录</title>
-      <link href="/posts/20260426235727-23499.html"/>
-      <url>/posts/20260426235727-23499.html</url>
-      
-        <content type="html"><![CDATA[<p>一些常用Markdown语法。</p><span id="more"></span><h1 id="标题语法"><a class="markdownIt-Anchor" href="#标题语法"></a> 标题语法</h1><p>在每行前面添加 <strong>#</strong> 号用来实现标题，一级标题一个#号，二级标题两个#号，以此类推值第六标题。</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># header</span></span><br></pre></td></tr></table></figure><blockquote><p>[!NOTE] <strong>可选语法</strong><br />还可以在标题下方添加 === 或 — 用来作为分隔符</p></blockquote><br><h1 id="段落"><a class="markdownIt-Anchor" href="#段落"></a> 段落</h1><p>可以使用单行空白分割段落。</p><br><h1 id="换行"><a class="markdownIt-Anchor" href="#换行"></a> 换行</h1><p><s>在一行的末尾添加两个或多个空格，然后按回车键,即可创建一个换行。</s><b>直接使用<code>&lt;br&gt;</code>来实现。</b></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这是一段话    </span><br><span class="line">这就完成了换行</span><br><span class="line">或者通过输入<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">来实现换行</span><br></pre></td></tr></table></figure><br><h1 id="空格占位符"><a class="markdownIt-Anchor" href="#空格占位符"></a> 空格占位符</h1><p>直接写入HTML语法</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&amp;ensp;</span> 写入半方大空白</span><br><span class="line"><span class="symbol">&amp;emsp;</span> 写入一个中文字符的全方大空白</span><br><span class="line"><span class="symbol">&amp;nbsp;</span> 一个普通的空白</span><br><span class="line">$~~~$ 用来写入连续的空格字符，四个个~相当于一个中文字符大小</span><br></pre></td></tr></table></figure><br><h1 id="强调"><a class="markdownIt-Anchor" href="#强调"></a> 强调</h1><ul><li><h2 id="粗体"><a class="markdownIt-Anchor" href="#粗体"></a> 粗体</h2></li></ul><table><thead><tr><th>Markdown语法</th><th>预览效果</th></tr></thead><tbody><tr><td><code>I just love **bold text**.</code></td><td>I just love <strong>bold text</strong>.</td></tr><tr><td><code>I just love __bold text__.</code></td><td>I just love <strong>bold text</strong>.</td></tr><tr><td><code>Love**is**bold</code></td><td>Love<strong>is</strong>bold</td></tr></tbody></table><ul><li><h2 id="斜体"><a class="markdownIt-Anchor" href="#斜体"></a> 斜体</h2></li></ul><table><thead><tr><th>Markdown语法</th><th>预览效果</th></tr></thead><tbody><tr><td><code>Italicized text is the *cat's meow*.</code></td><td>Italicized text is the <em>cat’s meow</em>.</td></tr><tr><td><code>Italicized text is the _cat's meow_.</code></td><td>Italicized text is the <em>cat’s meow</em>.</td></tr><tr><td><code>A*cat*meow</code></td><td>A<em>cat</em>meow</td></tr></tbody></table><ul><li><h2 id="强调和斜体"><a class="markdownIt-Anchor" href="#强调和斜体"></a> 强调和斜体</h2></li></ul><table><thead><tr><th>Markdown语法</th><th>预览效果</th></tr></thead><tbody><tr><td><code>This text is ***really important***.</code></td><td>This text is <strong><em>really important</em></strong>.</td></tr><tr><td><code>This text is ___really important___.</code></td><td>This text is <strong><em>really important</em></strong>.</td></tr><tr><td><code>This text is __*really important*__.</code></td><td>This text is <strong><em>really important</em></strong>.</td></tr><tr><td><code>This text is **_really important_**.</code></td><td>This text is <strong><em>really important</em></strong>.</td></tr><tr><td><code>This is really***very***important text.</code></td><td>This is really**<em>very</em>**important text.</td></tr></tbody></table><br><h1 id="引用"><a class="markdownIt-Anchor" href="#引用"></a> 引用</h1><p>使用’&gt;'来进行引用<br />引用文献则采用<code>^[]</code>形式</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[^1]</span><br><span class="line">[^1]:URL</span><br></pre></td></tr></table></figure><br><h1 id="列表"><a class="markdownIt-Anchor" href="#列表"></a> 列表</h1><ul><li><h2 id="有序列表"><a class="markdownIt-Anchor" href="#有序列表"></a> 有序列表</h2></li></ul><table><thead><tr><th>Markdown语法</th><th>预览效果</th></tr></thead><tbody><tr><td><code>1. First item   2. Second item   3. Third item   4. Fourth item</code></td><td>1. First item<br>2. Second item<br>3. Third item<br>4. Fourth item</td></tr><tr><td><code>1. First item   1. Second item   1. Third item   1. Fourth item</code></td><td>1. First item<br>2. Second item<br>3. Third item<br>4. Fourth item</td></tr><tr><td><code>1. First item   8. Second item   3. Third item   5. Fourth item</code></td><td>1. First item<br>2. Second item<br>3. Third item<br>4. Fourth item</td></tr><tr><td><code>1. First item   2. Second item   3. Third item       1. Indented item       2. Indented item   4. Fourth item</code></td><td>1. First item<br>2. Second item<br>3. Third item<br>    1. Indented item<br>    2. Indented item<br>4. Fourth item</td></tr></tbody></table><ul><li><h2 id="无序列表"><a class="markdownIt-Anchor" href="#无序列表"></a> 无序列表</h2></li></ul><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><code>-First item   - Second item   - Third item   - Fourth item</code></td><td>- First item<br>- Second item<br>- Third item<br>- Fourth item</td></tr><tr><td><code>* First item   * Second item   * Third item   * Fourth item</code></td><td>- First item<br>- Second item<br>- Third item<br>- Fourth item</td></tr><tr><td><code>+ First item   + Second item   + Third item   + Fourth item</code></td><td>- First item<br>- Second item<br>- Third item<br>- Fourth item</td></tr><tr><td><code>- First item   - Second item   - Third item       - Indented item       - Indented item   - Fourth item</code></td><td>- First item<br>- Second item<br>- Third item<br>    - Indented item<br>    - Indented item<br>- Fourth item</td></tr><tr><td></td><td></td></tr></tbody></table><br><h1 id="分隔符"><a class="markdownIt-Anchor" href="#分隔符"></a> 分隔符</h1><p>直接使用 <code>ctrl+alt+f</code> 的快捷键即可</p><br><h1 id="超链接"><a class="markdownIt-Anchor" href="#超链接"></a> 超链接</h1><p>超链接Markdown语法代码：<code>[超链接显示名](超链接地址 &quot;超链接title&quot;)</code></p><p>对应的HTML代码：<code>&lt;a href=&quot;超链接地址&quot; title=&quot;超链接title&quot;&gt;超链接显示名&lt;/a&gt;</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个链接 [Markdown语法](https://markdown.com.cn)。</span><br></pre></td></tr></table></figure><p>渲染效果如下：</p><p>这是一个链接 <a href="https://markdown.com.cn/">Markdown语法</a>。</p><h2 id="给链接增加-title"><a class="markdownIt-Anchor" href="#给链接增加-title"></a> 给链接增加 Title</h2><p>链接title是当鼠标悬停在链接上时会出现的文字，这个title是可选的，它放在圆括号中链接地址后面，跟链接地址之间以空格分隔。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个链接 [Markdown语法](https://markdown.com.cn &quot;最好的markdown教程&quot;)。</span><br></pre></td></tr></table></figure><p>渲染效果如下：</p><p>这是一个链接 <a href="https://markdown.com.cn/" title="最好的markdown教程">Markdown语法</a>。</p><br><h2 id="网址和email地址"><a class="markdownIt-Anchor" href="#网址和email地址"></a> 网址和Email地址</h2><p>使用尖括号可以很方便地把URL或者email地址变成可点击的链接。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;https://markdown.com.cn&gt;</span><br><span class="line">&lt;fake@example.com&gt;</span><br></pre></td></tr></table></figure><p>渲染效果如下：</p><p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br /><a href="mailto:fake@example.com">fake@example.com</a></p><h1 id="代办标签"><a class="markdownIt-Anchor" href="#代办标签"></a> 代办标签</h1><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> []    # [X] 则是被完成状态。</span><br></pre></td></tr></table></figure><blockquote><p>[!info] 快捷键<br />新版下是 ctrl + L</p></blockquote><ul><li>[ ] 正文</li><li>[x] 正文<br /><br></li></ul><h1 id="图片对齐方式和尺寸"><a class="markdownIt-Anchor" href="#图片对齐方式和尺寸"></a> 图片对齐方式和尺寸</h1><ul><li><p>使用<a href="https://zhida.zhihu.com/search?content_id=11634006&amp;content_type=Answer&amp;match_order=1&amp;q=img%E6%A0%87%E7%AD%BE&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3Nzc0NTQ2NTMsInEiOiJpbWfmoIfnrb4iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoxMTYzNDAwNiwiY29udGVudF90eXBlIjoiQW5zd2VyIiwibWF0Y2hfb3JkZXIiOjEsInpkX3Rva2VuIjpudWxsfQ.x1Xq70vmBr6zF-e-xFwNcEE9XpiXGQRSOuKKd7TU1Ig&amp;zhida_source=entity">img标签</a></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./xxx.png&quot;</span> <span class="attr">width</span> = <span class="string">&quot;300&quot;</span> <span class="attr">height</span> = <span class="string">&quot;200&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">align</span>=<span class="string">center</span> /&gt;</span></span><br></pre></td></tr></table></figure><p>**附：**如果需要居中的话只要在外面包围div标签即可</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>  <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span>    # left or right</span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li></ul>]]></content>
-      
-      
+      <tags>
+        <tag>材料分析技术</tag>
+        <tag>XRD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《为人三会》</title>
+    <url>/posts/20260427164805-8649.html</url>
+    <content><![CDATA[]]></content>
       <categories>
-          
-          <category> 技术杂谈 </category>
-          
-          <category> Markdown </category>
-          
+        <category>终身学习</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Markdown </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>HEXO-部署的问题</title>
-      <link href="/posts/20260425161201-58300.html"/>
-      <url>/posts/20260425161201-58300.html</url>
-      
-        <content type="html"><![CDATA[<p>部署到Github所遇到的一些问题。</p><span id="more"></span><h1 id="网站搭建"><a class="markdownIt-Anchor" href="#网站搭建"></a> 网站搭建</h1><p>搭建Hexo个人网站教程见：<a href="https://hexo.io/zh-cn/docs/">文档 | Hexo</a></p><p>部署详细教程见：<a href="https://zhuanlan.zhihu.com/p/688349142">HEXO系列教程 | 使用GitHub部署静态博客HEXO | 小白向教程 - 知乎</a></p><h1 id="网站部署在github"><a class="markdownIt-Anchor" href="#网站部署在github"></a> 网站部署在Github</h1><h2 id="github设置"><a class="markdownIt-Anchor" href="#github设置"></a> Github设置</h2><ol><li>创建一个Github账号，然后在github左侧点击<code>new</code>，创建一个新的仓库。</li><li>仓库名称（Repository name)，必须是<code>用户名.github.io</code>。</li></ol>]]></content>
-      
-      
+      <tags>
+        <tag>读书</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MD-一些语法备忘录</title>
+    <url>/posts/20260426235727-23499.html</url>
+    <content><![CDATA[<p>一些常用Markdown语法。</p>
+<span id="more"></span>
+<h1 id="标题语法"><a class="markdownIt-Anchor" href="#标题语法"></a> 标题语法</h1>
+<p>在每行前面添加 <strong>#</strong> 号用来实现标题，一级标题一个#号，二级标题两个#号，以此类推值第六标题。</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># header</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>[!NOTE] <strong>可选语法</strong><br />
+还可以在标题下方添加 === 或 — 用来作为分隔符</p>
+</blockquote>
+<br>
+<h1 id="段落"><a class="markdownIt-Anchor" href="#段落"></a> 段落</h1>
+<p>可以使用单行空白分割段落。</p>
+<br>
+<h1 id="换行"><a class="markdownIt-Anchor" href="#换行"></a> 换行</h1>
+<p><s>在一行的末尾添加两个或多个空格，然后按回车键,即可创建一个换行。</s><b>直接使用<code>&lt;br&gt;</code>来实现。</b></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是一段话    </span><br><span class="line">这就完成了换行</span><br><span class="line">或者通过输入<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">来实现换行</span><br></pre></td></tr></table></figure>
+<br>
+<h1 id="空格占位符"><a class="markdownIt-Anchor" href="#空格占位符"></a> 空格占位符</h1>
+<p>直接写入HTML语法</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="symbol">&amp;ensp;</span> 写入半方大空白</span><br><span class="line"><span class="symbol">&amp;emsp;</span> 写入一个中文字符的全方大空白</span><br><span class="line"><span class="symbol">&amp;nbsp;</span> 一个普通的空白</span><br><span class="line">$~~~$ 用来写入连续的空格字符，四个个~相当于一个中文字符大小</span><br></pre></td></tr></table></figure>
+<br>
+<h1 id="强调"><a class="markdownIt-Anchor" href="#强调"></a> 强调</h1>
+<ul>
+<li>
+<h2 id="粗体"><a class="markdownIt-Anchor" href="#粗体"></a> 粗体</h2>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Markdown语法</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>I just love **bold text**.</code></td>
+<td>I just love <strong>bold text</strong>.</td>
+</tr>
+<tr>
+<td><code>I just love __bold text__.</code></td>
+<td>I just love <strong>bold text</strong>.</td>
+</tr>
+<tr>
+<td><code>Love**is**bold</code></td>
+<td>Love<strong>is</strong>bold</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<h2 id="斜体"><a class="markdownIt-Anchor" href="#斜体"></a> 斜体</h2>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Markdown语法</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Italicized text is the *cat's meow*.</code></td>
+<td>Italicized text is the <em>cat’s meow</em>.</td>
+</tr>
+<tr>
+<td><code>Italicized text is the _cat's meow_.</code></td>
+<td>Italicized text is the <em>cat’s meow</em>.</td>
+</tr>
+<tr>
+<td><code>A*cat*meow</code></td>
+<td>A<em>cat</em>meow</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<h2 id="强调和斜体"><a class="markdownIt-Anchor" href="#强调和斜体"></a> 强调和斜体</h2>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Markdown语法</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>This text is ***really important***.</code></td>
+<td>This text is <strong><em>really important</em></strong>.</td>
+</tr>
+<tr>
+<td><code>This text is ___really important___.</code></td>
+<td>This text is <strong><em>really important</em></strong>.</td>
+</tr>
+<tr>
+<td><code>This text is __*really important*__.</code></td>
+<td>This text is <strong><em>really important</em></strong>.</td>
+</tr>
+<tr>
+<td><code>This text is **_really important_**.</code></td>
+<td>This text is <strong><em>really important</em></strong>.</td>
+</tr>
+<tr>
+<td><code>This is really***very***important text.</code></td>
+<td>This is really**<em>very</em>**important text.</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h1 id="引用"><a class="markdownIt-Anchor" href="#引用"></a> 引用</h1>
+<p>使用’&gt;'来进行引用<br />
+引用文献则采用<code>^[]</code>形式</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">[^1]</span><br><span class="line">[^1]:URL</span><br></pre></td></tr></table></figure>
+<br>
+<h1 id="列表"><a class="markdownIt-Anchor" href="#列表"></a> 列表</h1>
+<ul>
+<li>
+<h2 id="有序列表"><a class="markdownIt-Anchor" href="#有序列表"></a> 有序列表</h2>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Markdown语法</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1. First item   2. Second item   3. Third item   4. Fourth item</code></td>
+<td>1. First item<br>2. Second item<br>3. Third item<br>4. Fourth item</td>
+</tr>
+<tr>
+<td><code>1. First item   1. Second item   1. Third item   1. Fourth item</code></td>
+<td>1. First item<br>2. Second item<br>3. Third item<br>4. Fourth item</td>
+</tr>
+<tr>
+<td><code>1. First item   8. Second item   3. Third item   5. Fourth item</code></td>
+<td>1. First item<br>2. Second item<br>3. Third item<br>4. Fourth item</td>
+</tr>
+<tr>
+<td><code>1. First item   2. Second item   3. Third item       1. Indented item       2. Indented item   4. Fourth item</code></td>
+<td>1. First item<br>2. Second item<br>3. Third item<br>    1. Indented item<br>    2. Indented item<br>4. Fourth item</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<h2 id="无序列表"><a class="markdownIt-Anchor" href="#无序列表"></a> 无序列表</h2>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-First item   - Second item   - Third item   - Fourth item</code></td>
+<td>- First item<br>- Second item<br>- Third item<br>- Fourth item</td>
+</tr>
+<tr>
+<td><code>* First item   * Second item   * Third item   * Fourth item</code></td>
+<td>- First item<br>- Second item<br>- Third item<br>- Fourth item</td>
+</tr>
+<tr>
+<td><code>+ First item   + Second item   + Third item   + Fourth item</code></td>
+<td>- First item<br>- Second item<br>- Third item<br>- Fourth item</td>
+</tr>
+<tr>
+<td><code>- First item   - Second item   - Third item       - Indented item       - Indented item   - Fourth item</code></td>
+<td>- First item<br>- Second item<br>- Third item<br>    - Indented item<br>    - Indented item<br>- Fourth item</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<br>
+<h1 id="分隔符"><a class="markdownIt-Anchor" href="#分隔符"></a> 分隔符</h1>
+<p>直接使用 <code>ctrl+alt+f</code> 的快捷键即可</p>
+<br>
+<h1 id="超链接"><a class="markdownIt-Anchor" href="#超链接"></a> 超链接</h1>
+<p>超链接Markdown语法代码：<code>[超链接显示名](超链接地址 &quot;超链接title&quot;)</code></p>
+<p>对应的HTML代码：<code>&lt;a href=&quot;超链接地址&quot; title=&quot;超链接title&quot;&gt;超链接显示名&lt;/a&gt;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这是一个链接 [Markdown语法](https://markdown.com.cn)。</span><br></pre></td></tr></table></figure>
+<p>渲染效果如下：</p>
+<p>这是一个链接 <a href="https://markdown.com.cn/">Markdown语法</a>。</p>
+<h2 id="给链接增加-title"><a class="markdownIt-Anchor" href="#给链接增加-title"></a> 给链接增加 Title</h2>
+<p>链接title是当鼠标悬停在链接上时会出现的文字，这个title是可选的，它放在圆括号中链接地址后面，跟链接地址之间以空格分隔。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这是一个链接 [Markdown语法](https://markdown.com.cn &quot;最好的markdown教程&quot;)。</span><br></pre></td></tr></table></figure>
+<p>渲染效果如下：</p>
+<p>这是一个链接 <a href="https://markdown.com.cn/" title="最好的markdown教程">Markdown语法</a>。</p>
+<br>
+<h2 id="网址和email地址"><a class="markdownIt-Anchor" href="#网址和email地址"></a> 网址和Email地址</h2>
+<p>使用尖括号可以很方便地把URL或者email地址变成可点击的链接。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;https://markdown.com.cn&gt;</span><br><span class="line">&lt;fake@example.com&gt;</span><br></pre></td></tr></table></figure>
+<p>渲染效果如下：</p>
+<p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br />
+<a href="mailto:fake@example.com">fake@example.com</a></p>
+<h1 id="代办标签"><a class="markdownIt-Anchor" href="#代办标签"></a> 代办标签</h1>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> []    # [X] 则是被完成状态。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>[!info] 快捷键<br />
+新版下是 ctrl + L</p>
+</blockquote>
+<ul>
+<li>[ ] 正文</li>
+<li>[x] 正文<br />
+<br></li>
+</ul>
+<h1 id="图片对齐方式和尺寸"><a class="markdownIt-Anchor" href="#图片对齐方式和尺寸"></a> 图片对齐方式和尺寸</h1>
+<ul>
+<li>
+<p>使用<a href="https://zhida.zhihu.com/search?content_id=11634006&amp;content_type=Answer&amp;match_order=1&amp;q=img%E6%A0%87%E7%AD%BE&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3Nzc0NTQ2NTMsInEiOiJpbWfmoIfnrb4iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoxMTYzNDAwNiwiY29udGVudF90eXBlIjoiQW5zd2VyIiwibWF0Y2hfb3JkZXIiOjEsInpkX3Rva2VuIjpudWxsfQ.x1Xq70vmBr6zF-e-xFwNcEE9XpiXGQRSOuKKd7TU1Ig&amp;zhida_source=entity">img标签</a></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./xxx.png&quot;</span> <span class="attr">width</span> = <span class="string">&quot;300&quot;</span> <span class="attr">height</span> = <span class="string">&quot;200&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片名称&quot;</span> <span class="attr">align</span>=<span class="string">center</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>**附：**如果需要居中的话只要在外面包围div标签即可</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>  <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span>    # left or right</span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
       <categories>
-          
-          <category> 技术杂谈 </category>
-          
-          <category> HEXO </category>
-          
+        <category>技术杂谈</category>
+        <category>Markdown</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> HEXO </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>MD-banner所用元素</title>
-      <link href="/posts/20260425005454-26208.html"/>
-      <url>/posts/20260425005454-26208.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="所有常用banner元素"><a class="markdownIt-Anchor" href="#所有常用banner元素"></a> 所有常用Banner元素</h1><span id="more"></span><table><thead><tr><th>元素</th><th>值</th></tr></thead><tbody><tr><td>title</td><td>即文章的标题</td></tr><tr><td>date</td><td>文章创建的时间，由hexo自动创建</td></tr><tr><td>tags</td><td>标签，使用-隔断，例如“- 笔记”</td></tr><tr><td>categories</td><td>分类，大类区分</td></tr><tr><td>top</td><td>“true”：启用无序置顶排列。“1,2,…”：顺序置顶排列。</td></tr><tr><td>cover</td><td>banner所用封面(NexT貌似并未启用)</td></tr></tbody></table><p>加密文章所用的banner元素：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">password: 123456</span><br><span class="line">abstract: 这里有东西被加密了，需要输入密码查看哦。</span><br><span class="line">message: 您好，这里需要密码。</span><br><span class="line">wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。</span><br><span class="line">wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容</span><br></pre></td></tr></table></figure><h2 id="分类详解"><a class="markdownIt-Anchor" href="#分类详解"></a> 分类详解</h2><ul><li>Hexo中标签只有一级标签，与Obsidian不同，分类是可以有二级分类的。故可以通过分类进行多级+并列分类。</li></ul><p>例如：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line"><span class="bullet">-</span> [技术, HEXO]</span><br><span class="line"><span class="bullet">-</span> [技术, CORD]</span><br><span class="line"><span class="bullet">-</span> [生活]</span><br></pre></td></tr></table></figure><p>这样就形成了“技术”与“生活”两个大类，而“HEXO”和“CORD”是“技术”下的子类。</p><ul><li><p>二级分类</p><p>如果只有一个父类与子类，就可以使用如下语法：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line"><span class="bullet">-</span> 技术</span><br><span class="line"><span class="bullet">-</span> HEXO,</span><br></pre></td></tr></table></figure><p>这样就形成了一级分类“技术”和它的二级分类”HEXO“。</p></li></ul>]]></content>
-      
-      
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HEXO-部署的问题</title>
+    <url>/posts/20260425161201-58300.html</url>
+    <content><![CDATA[<p>部署到Github所遇到的一些问题。</p>
+<span id="more"></span>
+<h1 id="网站搭建"><a class="markdownIt-Anchor" href="#网站搭建"></a> 网站搭建</h1>
+<p>搭建Hexo个人网站教程见：<a href="https://hexo.io/zh-cn/docs/">文档 | Hexo</a></p>
+<p>部署详细教程见：<a href="https://zhuanlan.zhihu.com/p/688349142">HEXO系列教程 | 使用GitHub部署静态博客HEXO | 小白向教程 - 知乎</a></p>
+<h1 id="网站部署在github"><a class="markdownIt-Anchor" href="#网站部署在github"></a> 网站部署在Github</h1>
+<h2 id="github设置"><a class="markdownIt-Anchor" href="#github设置"></a> Github设置</h2>
+<ol>
+<li>创建一个Github账号，然后在github左侧点击<code>new</code>，创建一个新的仓库。</li>
+<li>仓库名称（Repository name)，必须是<code>用户名.github.io</code>。</li>
+</ol>
+]]></content>
       <categories>
-          
-          <category> 技术杂谈 </category>
-          
-          <category> Markdown </category>
-          
+        <category>技术杂谈</category>
+        <category>HEXO</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Markdown </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>HEXO-添加文章置顶</title>
-      <link href="/posts/20260425004955-57101.html"/>
-      <url>/posts/20260425004955-57101.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="文章置顶"><a class="markdownIt-Anchor" href="#文章置顶"></a> 文章置顶</h1><p>顾名思义，置顶文章。</p><span id="more"></span><p>移除默认安装的插件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-generator-index --save</span><br></pre></td></tr></table></figure><p>安装新插件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-index-pin-top --save</span><br></pre></td></tr></table></figure><p>写需要置顶的文章时，在 Front-matter 区域，加上一行：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top: true</span><br></pre></td></tr></table></figure><blockquote><p><strong>如果置顶多篇，怎么控制顺序呢？</strong></p><p><strong>答</strong>：设置top的值（大的在前面）。</p></blockquote><p>例如（文章 b 会显示在文章 a 的前面）：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Post a.md</span><br><span class="line">title: XXX</span><br><span class="line">top: 1</span><br><span class="line"></span><br><span class="line"># Post b.md</span><br><span class="line">title: xxx</span><br><span class="line">top: 10</span><br></pre></td></tr></table></figure><h1 id="添加置顶图标"><a class="markdownIt-Anchor" href="#添加置顶图标"></a> 添加置顶图标</h1><p>打开 <code>/themes/next/layout/_macro/post.njk</code> 文件，在 <code>&lt;div class=&quot;post-meta-container&quot;&gt;</code> 下方，插入如下代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if post.top %&#125;</span><br><span class="line">    &lt;i class=&quot;fa fa-thumb-tack&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;font color=7D26CD&gt;置顶&lt;/font&gt;</span><br><span class="line">    &lt;span class=&quot;post-meta-divider&quot;&gt;&lt;/span&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+      <tags>
+        <tag>HEXO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MD-banner所用元素</title>
+    <url>/posts/20260425005454-26208.html</url>
+    <content><![CDATA[<h1 id="所有常用banner元素"><a class="markdownIt-Anchor" href="#所有常用banner元素"></a> 所有常用Banner元素</h1>
+<span id="more"></span>
+<table>
+<thead>
+<tr>
+<th>元素</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>即文章的标题</td>
+</tr>
+<tr>
+<td>date</td>
+<td>文章创建的时间，由hexo自动创建</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>标签，使用-隔断，例如“- 笔记”</td>
+</tr>
+<tr>
+<td>categories</td>
+<td>分类，大类区分</td>
+</tr>
+<tr>
+<td>top</td>
+<td>“true”：启用无序置顶排列。“1,2,…”：顺序置顶排列。</td>
+</tr>
+<tr>
+<td>cover</td>
+<td>banner所用封面(NexT貌似并未启用)</td>
+</tr>
+</tbody>
+</table>
+<p>加密文章所用的banner元素：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">password: 123456</span><br><span class="line">abstract: 这里有东西被加密了，需要输入密码查看哦。</span><br><span class="line">message: 您好，这里需要密码。</span><br><span class="line">wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。</span><br><span class="line">wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容</span><br></pre></td></tr></table></figure>
+<h2 id="分类详解"><a class="markdownIt-Anchor" href="#分类详解"></a> 分类详解</h2>
+<ul>
+<li>Hexo中标签只有一级标签，与Obsidian不同，分类是可以有二级分类的。故可以通过分类进行多级+并列分类。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line"><span class="bullet">-</span> [技术, HEXO]</span><br><span class="line"><span class="bullet">-</span> [技术, CORD]</span><br><span class="line"><span class="bullet">-</span> [生活]</span><br></pre></td></tr></table></figure>
+<p>这样就形成了“技术”与“生活”两个大类，而“HEXO”和“CORD”是“技术”下的子类。</p>
+<ul>
+<li>
+<p>二级分类</p>
+<p>如果只有一个父类与子类，就可以使用如下语法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line"><span class="bullet">-</span> 技术</span><br><span class="line"><span class="bullet">-</span> HEXO,</span><br></pre></td></tr></table></figure>
+<p>这样就形成了一级分类“技术”和它的二级分类”HEXO“。</p>
+</li>
+</ul>
+]]></content>
       <categories>
-          
-          <category> 技术杂谈 </category>
-          
-          <category> HEXO </category>
-          
+        <category>技术杂谈</category>
+        <category>Markdown</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> HEXO </tag>
-            
-            <tag> 插件 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>HEXO-增加文章字数统计及阅读时长功能</title>
-      <link href="/posts/20260425003232-2293.html"/>
-      <url>/posts/20260425003232-2293.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="增加文章字数统计及阅读时长功能"><a class="markdownIt-Anchor" href="#增加文章字数统计及阅读时长功能"></a> 增加文章字数统计及阅读时长功能</h1><p>用于记录文章字数及计数阅读时长。</p><span id="more"></span><p>安装插件 <code>hexo-wordcount</code> ，执行以下命令：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure><p>在主题配置文件中搜索 <code>symbols_count_time</code>，修改成如下:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/next-theme/hexo-word-counter</span><br><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true</span><br><span class="line">  item_text_post: true # 文章字数统计</span><br><span class="line">  item_text_total: true # 站点总字数统计</span><br><span class="line">  # 平均单词长度（单词的计数）。默认值:4。CN≈2 EN≈5 俄文≈6</span><br><span class="line">  awl: 2</span><br><span class="line">  # 每分钟的单词。默认值:275。缓慢≈200 正常≈275 快≈350</span><br><span class="line">  wpm: 275</span><br></pre></td></tr></table></figure><p>如果安装完报如下提醒，还需安装eslint</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\hexo\blog&gt;npm install hexo-symbols-count-time --save</span><br><span class="line">npm WARN babel-eslint@10.0.1 requires a peer of eslint@&gt;= 4.12.1 but none is installed. You must install peer dependencies yourself.</span><br></pre></td></tr></table></figure><p>安装eslint</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install eslint --save</span><br></pre></td></tr></table></figure><p>在站点配置文件（_config.yml）添加以下配置：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true                # 文章字数统计</span><br><span class="line">  time: true                   # 文章阅读时长</span><br><span class="line">  total_symbols: true          # 站点总字数统计</span><br><span class="line">  total_time: true             # 站点总阅读时长</span><br><span class="line">  exclude_codeblock: false     # 排除代码字数统计</span><br></pre></td></tr></table></figure><p>在NexT主题配置中添加以下配置：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/theme-next/hexo-symbols-count-time</span><br><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true     # 是否另起一行（true的话不和发表时间等同一行）</span><br><span class="line">  item_text_post: true     # 首页文章统计数量前是否显示文字描述（本文字数、阅读时长）</span><br><span class="line">  item_text_total: false   # 页面底部统计数量前是否显示文字描述（站点总字数、站点阅读时长）</span><br><span class="line">  awl: 4                   # Average Word Length</span><br><span class="line">  wpm: 275                 # Words Per Minute（每分钟阅读词数）</span><br><span class="line">  suffix: mins</span><br></pre></td></tr></table></figure><blockquote><p>参考来源：<a href="https://blog.csdn.net/mqdxiaoxiao/article/details/93670772">Hexo博客NexT主题下添加字数统计和阅读时长_字数和阅读时长-CSDN博客</a></p></blockquote>]]></content>
-      
-      
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HEXO-添加文章置顶</title>
+    <url>/posts/20260425004955-57101.html</url>
+    <content><![CDATA[<h1 id="文章置顶"><a class="markdownIt-Anchor" href="#文章置顶"></a> 文章置顶</h1>
+<p>顾名思义，置顶文章。</p>
+<span id="more"></span>
+<p>移除默认安装的插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-generator-index --save</span><br></pre></td></tr></table></figure>
+<p>安装新插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-index-pin-top --save</span><br></pre></td></tr></table></figure>
+<p>写需要置顶的文章时，在 Front-matter 区域，加上一行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">top: true</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>如果置顶多篇，怎么控制顺序呢？</strong></p>
+<p><strong>答</strong>：设置top的值（大的在前面）。</p>
+</blockquote>
+<p>例如（文章 b 会显示在文章 a 的前面）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Post a.md</span><br><span class="line">title: XXX</span><br><span class="line">top: 1</span><br><span class="line"></span><br><span class="line"># Post b.md</span><br><span class="line">title: xxx</span><br><span class="line">top: 10</span><br></pre></td></tr></table></figure>
+<h1 id="添加置顶图标"><a class="markdownIt-Anchor" href="#添加置顶图标"></a> 添加置顶图标</h1>
+<p>打开 <code>/themes/next/layout/_macro/post.njk</code> 文件，在 <code>&lt;div class=&quot;post-meta-container&quot;&gt;</code> 下方，插入如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% if post.top %&#125;</span><br><span class="line">    &lt;i class=&quot;fa fa-thumb-tack&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;font color=7D26CD&gt;置顶&lt;/font&gt;</span><br><span class="line">    &lt;span class=&quot;post-meta-divider&quot;&gt;&lt;/span&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
-          
-          <category> 技术杂谈 </category>
-          
-          <category> HEXO </category>
-          
+        <category>技术杂谈</category>
+        <category>HEXO</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> HEXO </tag>
-            
-            <tag> 插件 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>HEXO-添加本地搜索</title>
-      <link href="/posts/20260424235141-59610.html"/>
-      <url>/posts/20260424235141-59610.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="local-search-本地搜索"><a class="markdownIt-Anchor" href="#local-search-本地搜索"></a> Local Search 本地搜索</h2><p>在左侧侧边栏添加搜索功能。</p><span id="more"></span><p>安装插件 <code>hexo-generator-searchdb</code>，在Blog根目录运行git bush，输入以下代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure><p>修改站点全局配置文件(_config.yml)，添加以下内容到任意位置。</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#本地搜索</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure><p>然后在主题配置文件(_config_next.yml)，修改local_search的enable为true，启用本地搜索。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Local search</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+      <tags>
+        <tag>HEXO</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HEXO-增加文章字数统计及阅读时长功能</title>
+    <url>/posts/20260425003232-2293.html</url>
+    <content><![CDATA[<h1 id="增加文章字数统计及阅读时长功能"><a class="markdownIt-Anchor" href="#增加文章字数统计及阅读时长功能"></a> 增加文章字数统计及阅读时长功能</h1>
+<p>用于记录文章字数及计数阅读时长。</p>
+<span id="more"></span>
+<p>安装插件 <code>hexo-wordcount</code> ，执行以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
+<p>在主题配置文件中搜索 <code>symbols_count_time</code>，修改成如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/next-theme/hexo-word-counter</span><br><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true</span><br><span class="line">  item_text_post: true # 文章字数统计</span><br><span class="line">  item_text_total: true # 站点总字数统计</span><br><span class="line">  # 平均单词长度（单词的计数）。默认值:4。CN≈2 EN≈5 俄文≈6</span><br><span class="line">  awl: 2</span><br><span class="line">  # 每分钟的单词。默认值:275。缓慢≈200 正常≈275 快≈350</span><br><span class="line">  wpm: 275</span><br></pre></td></tr></table></figure>
+<p>如果安装完报如下提醒，还需安装eslint</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">D:\hexo\blog&gt;npm install hexo-symbols-count-time --save</span><br><span class="line">npm WARN babel-eslint@10.0.1 requires a peer of eslint@&gt;= 4.12.1 but none is installed. You must install peer dependencies yourself.</span><br></pre></td></tr></table></figure>
+<p>安装eslint</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install eslint --save</span><br></pre></td></tr></table></figure>
+<p>在站点配置文件（_config.yml）添加以下配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true                # 文章字数统计</span><br><span class="line">  time: true                   # 文章阅读时长</span><br><span class="line">  total_symbols: true          # 站点总字数统计</span><br><span class="line">  total_time: true             # 站点总阅读时长</span><br><span class="line">  exclude_codeblock: false     # 排除代码字数统计</span><br></pre></td></tr></table></figure>
+<p>在NexT主题配置中添加以下配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/theme-next/hexo-symbols-count-time</span><br><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true     # 是否另起一行（true的话不和发表时间等同一行）</span><br><span class="line">  item_text_post: true     # 首页文章统计数量前是否显示文字描述（本文字数、阅读时长）</span><br><span class="line">  item_text_total: false   # 页面底部统计数量前是否显示文字描述（站点总字数、站点阅读时长）</span><br><span class="line">  awl: 4                   # Average Word Length</span><br><span class="line">  wpm: 275                 # Words Per Minute（每分钟阅读词数）</span><br><span class="line">  suffix: mins</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考来源：<a href="https://blog.csdn.net/mqdxiaoxiao/article/details/93670772">Hexo博客NexT主题下添加字数统计和阅读时长_字数和阅读时长-CSDN博客</a></p>
+</blockquote>
+]]></content>
       <categories>
-          
-          <category> 技术杂谈 </category>
-          
-          <category> HEXO </category>
-          
+        <category>技术杂谈</category>
+        <category>HEXO</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> HEXO </tag>
-            
-            <tag> 插件 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>HEXO-为文章添加加密访问</title>
-      <link href="/posts/20260424234943-7940.html"/>
-      <url>/posts/20260424234943-7940.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="文章的加密访问"><a class="markdownIt-Anchor" href="#文章的加密访问"></a> 文章的加密访问</h1><p>有时，我们希望记录一些个人笔记或者对嘉豪时期的文章（但是不舍得删除的）进行私密处理，这时候，密码加密是个不错的主意。</p><span id="more"></span><h1 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h1><p>在博客根目录安装插件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-blog-encrypt</span><br></pre></td></tr></table></figure><p>安装完成后，在package.json文件的dependecies依赖中可以看到encrypt插件，证明安装成功。</p><p>配置hexo中的_config.yml文件，在文件末尾添加如下代码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 安全设置</span><br><span class="line">encrypt:</span><br><span class="line">  # 启用插件</span><br><span class="line">  enable: true</span><br><span class="line">  # 自定义加密相关设置</span><br><span class="line">  abstract: &quot;这里的内容加密了，需要密码哦。&quot;</span><br><span class="line">  message: &quot;请输入密码查看本文。&quot;</span><br><span class="line">  # 可以在这里设定特定标签对应的默认密码</span><br><span class="line">  tags:</span><br><span class="line">    - [name: &quot;encryptAsSecret&quot;, password: &quot;yoursecret&quot;]</span><br><span class="line">  # 错误消息设置</span><br><span class="line">  wrong_pass_message: &quot;密码错误，请重试。&quot;</span><br><span class="line">  wrong_hash_message: &quot;内容认证失败，但仍可尝试查看。&quot;</span><br><span class="line">  # 是否禁用日志记录</span><br><span class="line">  silent: false</span><br></pre></td></tr></table></figure><p>使用时需要在需要加密文章的头部banner中添加以下东西：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">title: ###</span><br><span class="line">date: XXXX-XX-XX XX:XX:XX</span><br><span class="line">password: mima 如果设为&quot;&quot;则为空</span><br><span class="line">abstract: 这里有东西被加密了，需要输入密码查看哦。</span><br><span class="line">message: 您好，这里需要密码。</span><br><span class="line">wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。</span><br><span class="line">wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容</span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+      <tags>
+        <tag>HEXO</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HEXO-添加本地搜索</title>
+    <url>/posts/20260424235141-59610.html</url>
+    <content><![CDATA[<h2 id="local-search-本地搜索"><a class="markdownIt-Anchor" href="#local-search-本地搜索"></a> Local Search 本地搜索</h2>
+<p>在左侧侧边栏添加搜索功能。</p>
+<span id="more"></span>
+<p>安装插件 <code>hexo-generator-searchdb</code>，在Blog根目录运行git bush，输入以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+<p>修改站点全局配置文件(_config.yml)，添加以下内容到任意位置。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#本地搜索</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
+<p>然后在主题配置文件(_config_next.yml)，修改local_search的enable为true，启用本地搜索。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
-          
-          <category> 技术杂谈 </category>
-          
-          <category> HEXO </category>
-          
+        <category>技术杂谈</category>
+        <category>HEXO</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> HEXO </tag>
-            
-            <tag> 插件 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>HEXO-建站简介</title>
-      <link href="/posts/20260423202043-22508.html"/>
-      <url>/posts/20260423202043-22508.html</url>
-      
-        <content type="html"><![CDATA[<p><img src="https://bing.img.run/1920x1080.php" alt="封面" /></p><h1 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h1><p>个人的学习博客，使用Hexo搭建，主题改用使用Next，并且部署在Github，日后可能会更换更快的网站。本站将用来记录学习、备份操作与记录感悟。</p><p>吸取之前的建站经验，尽量以简洁为主，少用图片以加快网站运行速度，多备份，并使用简单的页面布局。</p><span id="more"></span><blockquote><p>NexT中文使用文档：<a href="https://theme-next.iissnan.com/">https://theme-next.iissnan.com/</a></p><p>参考来源：</p><p>【[馨客栈分享]使用Hexo博客搭建的个人博客，使用Next主题来进行优化改造】 <a href="https://www.bilibili.com/video/BV16W411t7mq/?p=16&amp;share_source=copy_web&amp;vd_source=57bb74376930424b7a2e91438825af1d">https://www.bilibili.com/video/BV16W411t7mq/?p=16&amp;share_source=copy_web&amp;vd_source=57bb74376930424b7a2e91438825af1d</a></p><p><a href="https://www.simon96.online/2018/10/12/hexo-tutorial/">【持续更新】最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析 | 遇见西门</a></p><p><a href="https://kfufys.github.io/posts/9aae07a1.html">Hexo-Next 主题个性化配置教程 | Smart Space</a></p></blockquote><h1 id="配置设置"><a class="markdownIt-Anchor" href="#配置设置"></a> 配置设置</h1><h2 id="设置主题语言为中文"><a class="markdownIt-Anchor" href="#设置主题语言为中文"></a> 设置主题语言为中文</h2><p>在[博客根目录]中，将_config.yml文件中的language设置为<code>zh-CN</code></p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br></pre></td></tr></table></figure><h2 id="设置头像"><a class="markdownIt-Anchor" href="#设置头像"></a> 设置头像</h2><p>在[主题目录]中，修改主题目录下的_config.yml文件中的avatar选项。</p><p>例如：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://pic1.imgdb.cn/item/69e85afb361615f002f5dfd0.jpg</span></span><br></pre></td></tr></table></figure><p>此外，下面还有两个侧边栏设置，可以按需开启：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://pic1.imgdb.cn/item/69e85afb361615f002f5dfd0.jpg</span></span><br><span class="line">  <span class="attr">rounded:</span> <span class="literal">false</span>    <span class="comment"># 如果为true，头像将为圆形</span></span><br><span class="line">  <span class="attr">rotated:</span> <span class="literal">false</span>    <span class="comment"># 如果为true，鼠标互动，头像将会旋转</span></span><br></pre></td></tr></table></figure><h2 id="设置首页是否可以阅读全文"><a class="markdownIt-Anchor" href="#设置首页是否可以阅读全文"></a> 设置首页是否可以阅读全文</h2><ol><li>第一种方法</li></ol><p>​在文章想要展示的地方添加**<code>&lt;!-- more --&gt;</code><strong>。</strong>（极力推荐）**</p><ol start="2"><li>修改config文件（未解决）</li></ol><h2 id="隐藏网页底部-powered-by-hexo-强力驱动"><a class="markdownIt-Anchor" href="#隐藏网页底部-powered-by-hexo-强力驱动"></a> 隐藏网页底部 powered By Hexo / 强力驱动</h2><p>打开 <code>themes/next/layout/partials/footer.njk</code> 文件，找到如下代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> theme.<span class="property">footer</span>.<span class="property">powered</span> %&#125;</span><br><span class="line">  &lt;div <span class="keyword">class</span>=<span class="string">&quot;powered-by&quot;</span>&gt;</span><br><span class="line">    &#123;%- set next_site = <span class="string">&#x27;https://theme-next.js.org&#x27;</span> <span class="keyword">if</span> theme.<span class="property">scheme</span> === <span class="string">&#x27;Gemini&#x27;</span> <span class="keyword">else</span> <span class="string">&#x27;https://theme-next.js.org/&#x27;</span> + theme.<span class="property">scheme</span> | lower + <span class="string">&#x27;/&#x27;</span> %&#125;</span><br><span class="line">    &#123;&#123;- <span class="title function_">__</span>(<span class="string">&#x27;footer.powered&#x27;</span>, <span class="title function_">next_url</span>(<span class="string">&#x27;https://hexo.io&#x27;</span>, <span class="string">&#x27;Hexo&#x27;</span>) + <span class="string">&#x27; &amp; &#x27;</span> + <span class="title function_">next_url</span>(next_site, <span class="string">&#x27;NexT.&#x27;</span> + theme.<span class="property">scheme</span>)) &#125;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure><p>把这段代码首尾分别加上：<code>&lt;!--</code> 和 <code>--&gt;</code>，或者直接删除。</p><h2 id="添加文章阴影未解决"><a class="markdownIt-Anchor" href="#添加文章阴影未解决"></a> 添加文章阴影(未解决)</h2><p>打开 <code>/themes/next/source/css/custom/custom.styl</code> 文件，添加如下代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.post &#123;</span><br><span class="line">    margin-top: 60px;</span><br><span class="line">    margin-bottom: 60px;</span><br><span class="line">    padding: 25px;</span><br><span class="line">    -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">    -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="浏览页面显示当前浏览进度"><a class="markdownIt-Anchor" href="#浏览页面显示当前浏览进度"></a> 浏览页面显示当前浏览进度</h2><p>打开 <code>themes/next/\_config.yml</code> 文件，搜索 <code>scrollpercent</code>，把 false 改为 <code>true</code>。</p><h2 id="设置网站图标"><a class="markdownIt-Anchor" href="#设置网站图标"></a> 设置网站图标</h2><p>制作一个图案，在在 <a href="https://www.zhanid.com/tool/ico.html"><strong>ZHANID</strong></a> 转换成 ico 图标，下载到本地 <code>/themes/next/source/images</code> 文件夹里，并且修改主题配置文件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  #small: /images/favicon-16x16-next.png</span><br><span class="line">  #medium: /images/favicon.ico</span><br><span class="line">  #apple_touch_icon: /images/apple-touch-icon-next.png</span><br><span class="line">  #safari_pinned_tab: /images/logo.svg</span><br><span class="line">  #android_manifest: /manifest.json</span><br></pre></td></tr></table></figure><p>去掉 <code>medium</code> 前面的 <code>#</code>。</p><h2 id="将文章底部的标签更换为图标️"><a class="markdownIt-Anchor" href="#将文章底部的标签更换为图标️"></a> 将文章底部的&quot;#&quot;标签更换为图标🏷️</h2><p>打开 <code>/themes/next/layout/_macro/post.njk</code> 文件，修改以下代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if theme.tag_icon else &#x27;#&#x27;</span><br><span class="line"># 改为：</span><br><span class="line">if theme.tag_icon else &#x27;🏷️&#x27;</span><br></pre></td></tr></table></figure><h2 id="添加代码复制按钮"><a class="markdownIt-Anchor" href="#添加代码复制按钮"></a> 添加代码复制按钮</h2><p>在主题配置文件中搜索 <code>codeblock</code>，把默认配置改为如下配置：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">codeblock:</span></span><br><span class="line">  <span class="comment"># Code Highlight theme</span></span><br><span class="line">  <span class="comment"># All available themes: https://theme-next.js.org/highlight/</span></span><br><span class="line">  <span class="attr">theme:</span></span><br><span class="line">    <span class="attr">light:</span> <span class="string">default</span></span><br><span class="line">    <span class="attr">dark:</span> <span class="string">stackoverflow-dark</span></span><br><span class="line">  <span class="attr">prism:</span></span><br><span class="line">    <span class="attr">light:</span> <span class="string">prism</span></span><br><span class="line">    <span class="attr">dark:</span> <span class="string">prism-dark</span></span><br><span class="line">  <span class="comment"># Add copy button on codeblock</span></span><br><span class="line">  <span class="attr">copy_button:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="string">enable</span></span><br><span class="line">    <span class="attr">show_result:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># Available values: default | flat | mac</span></span><br><span class="line">    <span class="attr">style:</span> <span class="string">mac</span></span><br><span class="line">  <span class="comment"># Fold code block</span></span><br><span class="line">  <span class="attr">fold:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">height:</span> <span class="number">500</span></span><br></pre></td></tr></table></figure><h2 id="添加顶部按钮"><a class="markdownIt-Anchor" href="#添加顶部按钮"></a> 添加顶部按钮</h2><p>在主题配置文件中搜索 <code>back2top</code> ，把 <code>enable</code> 参数值设为 <code>true</code>。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  enable: true</span><br><span class="line">  # Back to top in sidebar.</span><br><span class="line">  sidebar: false</span><br><span class="line">  # Scroll percent label in b2t button.</span><br><span class="line">  scrollpercent: true</span><br></pre></td></tr></table></figure><h2 id="各版块透明度修改未实践"><a class="markdownIt-Anchor" href="#各版块透明度修改未实践"></a> 各版块透明度修改（未实践）</h2><h3 id="内容板块透明化"><a class="markdownIt-Anchor" href="#内容板块透明化"></a> 内容板块透明化</h3><p>博客根目录 <code>themes\next\source\css_schemes\Pisces_layout.styl</code> 文件 <code>.content-wrap</code> 标签下 <code>background: white</code> 修改为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); //0.7是透明度</span><br></pre></td></tr></table></figure><p>博客根目录 <code>themes\next\source\css_schemes\Gemini\index.styl</code> 文件 <code>.post-block</code> 标签下的 <code>background: white</code> 修改为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); //0.7是透明度</span><br></pre></td></tr></table></figure><h3 id="分页板块透明化"><a class="markdownIt-Anchor" href="#分页板块透明化"></a> 分页板块透明化</h3><p>博客根目录 <code>themes\next\source\css_schemes\Gemini\index.styl</code> 文件 <code>.pagination</code> 标签下的 <code>background: white</code> 修改为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); //0.7是透明度</span><br></pre></td></tr></table></figure><h3 id="菜单栏板块透明化"><a class="markdownIt-Anchor" href="#菜单栏板块透明化"></a> 菜单栏板块透明化</h3><p>博客根目录 <code>themes\next\source\css_schemes\Pisces_layout.styl</code> 文件 <code>.header-inner</code> 标签下 <code>background: white</code> 修改为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); //0.7是透明度</span><br></pre></td></tr></table></figure><p>博客根目录 <code>themes\next\source\css_schemes\Pisces_sidebar.styl</code> 文件 <code>.sidebar</code> 标签下增加一行:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opacity: 0.7; // 0.7透明度自己选择</span><br></pre></td></tr></table></figure><h2 id="页脚添加访客量未解决"><a class="markdownIt-Anchor" href="#页脚添加访客量未解决"></a> 页脚添加访客量（未解决）</h2><p>在 footer 模板文件（<code>themes/next/layout/_partials/footer.njk</code>）底部添加以下代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;powered-by&quot;&gt;</span><br><span class="line">    &lt;script async src=&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">        本站访客数:&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">    &lt;span class=&quot;post-meta-divider&quot;&gt;|&lt;/span&gt;</span><br><span class="line">    &lt;span id=&quot;busuanzi_container_site_pv&quot;&gt;</span><br><span class="line">        本站访问量&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure><h2 id="更改默认-google-字体库"><a class="markdownIt-Anchor" href="#更改默认-google-字体库"></a> 更改默认 Google 字体库</h2><blockquote><p>访问网站总是会耗费一大部分的时间在加载 <code>google</code> 字体库上, 而且经常加载不成功。我们可以用国内的 <code>CDN库</code> 来替代主题中的 <code>google</code> 字体库。</p></blockquote><p>打开主题配置文件，搜索 <code>Font Settings</code> 字体库设置板块，把字体库服务器 <code>host</code> 改为国内CDN库（<a href="https://kfufys.github.io/posts/fonts.useso.com">fonts.useso.com</a>）：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Uri of fonts host, e.g. https://fonts.googleapis.com (Default).</span><br><span class="line">#host:</span><br><span class="line">host: fonts.useso.com</span><br></pre></td></tr></table></figure><h2 id="添加博客背景图片"><a class="markdownIt-Anchor" href="#添加博客背景图片"></a> 添加博客背景图片</h2><ul><li>将自己的背景图片命名为<code>background.png</code>保存在<code>\themes\next\source\images</code>路径下</li><li>进入路径<code>\themes\next\source\css\_schemes</code>可见其中有四个文件<a href="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210204340.png"><img src="https://myblog-1307904772.cos.ap-shanghai.myqcloud.com/2022/12/20221210204340.png" alt="四个文件" />四个文件</a></li><li>选择你自己的主题，本文以Gemini为例，使用记事本打开<code>index.styl</code></li><li>复制下列代码在<code>Desktop layout styles.</code> 如图。</li></ul><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 整体背景设置</span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line"><span class="attribute">background</span>:<span class="built_in">url</span>(/images/background.png);<span class="comment">// 设定背景图片,images同处于source文件夹下</span></span><br><span class="line"><span class="attribute">background-repeat</span>: no-repeat;<span class="comment">// 设定背景图片非重复填充</span></span><br><span class="line"><span class="attribute">background-attachment</span>:fixed;<span class="comment">// 设置背景图片不随页面滚动</span></span><br><span class="line"><span class="attribute">background-position</span>:<span class="number">50%</span> <span class="number">50%</span>;<span class="comment">// 设置背景图片位置</span></span><br><span class="line"><span class="attribute">background-size</span>: cover// 设置保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置透明度</span></span><br><span class="line">.main-inner&#123;</span><br><span class="line"><span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line">.header-inner&#123;</span><br><span class="line"><span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line"><span class="attribute">z-index</span>: <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="设置边框圆角"><a class="markdownIt-Anchor" href="#设置边框圆角"></a> 设置边框圆角</h2><h3 id="更改背景图未实践"><a class="markdownIt-Anchor" href="#更改背景图未实践"></a> 更改背景图（未实践）</h3><p>新版本已没有<code>custom.styl</code>，故需要新建文件于<code>[博客根目录]/source/_data/styles.styl</code></p><p>打开<code>styles.styl</code>，添加如下：</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//背景图片设置</span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(/images/background.jpg);</span><br><span class="line">    <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">    <span class="attribute">background-attachment</span>: fixed;</span><br><span class="line">    <span class="attribute">background-size</span>: <span class="number">100%</span> <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li><code>background-image:url</code> 为图片路径，可以直接使用链接，也可以是图片路径（将自定义图片放入<code>hexo\public\images</code>路径下）</li><li><code>background-repeat</code>：若果背景图片不能全屏，那么是否平铺显示，充满屏幕</li><li><code>background-attachment</code>：背景是否随着网页上下滚动而滚动，fixed 为固定</li><li><code>background-size</code>：图片展示大小，这里设置 100%，100% 的意义为：如果背景图片不能全屏，那么是否通过拉伸的方式将背景强制拉伸至全屏显示</li></ul><p>接下来打开<code>hexo/themes/next/_config.yml</code>，即next主题<a href="https://zhida.zhihu.com/search?content_id=150525781&amp;content_type=Article&amp;match_order=1&amp;q=%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3Nzc0NDk2MzksInEiOiLphY3nva7mlofku7YiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoxNTA1MjU3ODEsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.cCEKYo4ykBpWCgd7L9ZKpQztNorAO-nK3JZ5lrBgbGM&amp;zhida_source=entity">配置文件</a>，修改如下：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">custom_file_path:</span><br><span class="line">  </span><br><span class="line">  style: source/_data/styles.styl</span><br></pre></td></tr></table></figure><p>记得保存。</p><h3 id="博客页面透明化"><a class="markdownIt-Anchor" href="#博客页面透明化"></a> 博客页面透明化</h3><p>在<code>styles.styl</code>里添加如下内容：</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//文章内容的透明度设置</span></span><br><span class="line"><span class="selector-class">.content-wrap</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//侧边框的透明度设置</span></span><br><span class="line"><span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: transparent;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//菜单栏的透明度设置</span></span><br><span class="line"><span class="selector-class">.header-inner</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.9</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="边框圆角"><a class="markdownIt-Anchor" href="#边框圆角"></a> 边框圆角</h3><p>打开<code>hexo/themes/next/_config.yml</code>，即主题配置，修改如下：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  </span><br><span class="line">  <span class="attr">variable:</span> <span class="string">source/_data/variables.styl</span></span><br></pre></td></tr></table></figure><p>在之前新建的<code>_data</code>目录下新建<code>variables.styl</code>，类似新建<code>styles.styl</code>。打开<code>variables.styl</code>，添加如下：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 圆角设置</span><br><span class="line">$border-radius-inner     = 20px 20px 20px 20px;</span><br><span class="line">$border-radius           = 20px;</span><br></pre></td></tr></table></figure><p>但是后发现并未改为圆角，所以尝试了下将黑色改为透明，成功实现。具体是修改 /themes/next/source/css/_variables/Gemini.styl 内代码,将 $body-bg-color赋值为透明 transparent。</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Variables of Gemini scheme</span></span><br><span class="line"><span class="comment">// ==================================================</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;Pisces.styl&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Settings for some of the most global styles.</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line"><span class="variable">$body</span>-bg-<span class="attribute">color</span>           = <span class="number">#eee</span>;</span><br><span class="line"><span class="comment">// $body-bg-color           = transparent;</span></span><br><span class="line"><span class="comment">// Borders.</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line"><span class="variable">$box</span>-shadow-inner        = <span class="number">0</span> <span class="number">2px</span> <span class="number">2px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>), <span class="number">0</span> <span class="number">3px</span> <span class="number">1px</span> -<span class="number">2px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">06</span>), <span class="number">0</span> <span class="number">1px</span> <span class="number">5px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>);</span><br><span class="line"><span class="variable">$box</span>-shadow              = <span class="number">0</span> <span class="number">2px</span> <span class="number">2px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>), <span class="number">0</span> <span class="number">3px</span> <span class="number">1px</span> -<span class="number">2px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">06</span>), <span class="number">0</span> <span class="number">1px</span> <span class="number">5px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">12</span>), <span class="number">0</span> -<span class="number">1px</span> .<span class="number">5px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">09</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// $border-radius-inner     = 20px;</span></span><br><span class="line"><span class="comment">// $border-radius           = 20px;</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$border</span>-radius-inner     = initial;</span><br><span class="line"><span class="variable">$border</span>-radius           = initial;</span><br><span class="line"><span class="comment">// $border-radius-inner     = 0 0 3px 3px;</span></span><br><span class="line"><span class="comment">// $border-radius           = 3px;</span></span><br></pre></td></tr></table></figure><h2 id="设置侧边目录自动展开"><a class="markdownIt-Anchor" href="#设置侧边目录自动展开"></a> 设置侧边目录自动展开</h2><p>修改主题配置文件，搜寻<code>toc</code>，修改配置：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Automatically add list number to toc.</span></span><br><span class="line">  <span class="attr">number:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># If true, all words will placed on next lines if header width longer then sidebar width.</span></span><br><span class="line">  <span class="attr">wrap:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># If true, all level of TOC in a post will be displayed, rather than the activated part of it.</span></span><br><span class="line">  <span class="attr">expand_all:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Maximum heading depth of generated toc.</span></span><br><span class="line">  <span class="attr">max_depth:</span> <span class="number">6</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+      <tags>
+        <tag>HEXO</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HEXO-为文章添加加密访问</title>
+    <url>/posts/20260424234943-7940.html</url>
+    <content><![CDATA[<h1 id="文章的加密访问"><a class="markdownIt-Anchor" href="#文章的加密访问"></a> 文章的加密访问</h1>
+<p>有时，我们希望记录一些个人笔记或者对嘉豪时期的文章（但是不舍得删除的）进行私密处理，这时候，密码加密是个不错的主意。</p>
+<span id="more"></span>
+<h1 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h1>
+<p>在博客根目录安装插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-blog-encrypt</span><br></pre></td></tr></table></figure>
+<p>安装完成后，在package.json文件的dependecies依赖中可以看到encrypt插件，证明安装成功。</p>
+<p>配置hexo中的_config.yml文件，在文件末尾添加如下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 安全设置</span><br><span class="line">encrypt:</span><br><span class="line">  # 启用插件</span><br><span class="line">  enable: true</span><br><span class="line">  # 自定义加密相关设置</span><br><span class="line">  abstract: &quot;这里的内容加密了，需要密码哦。&quot;</span><br><span class="line">  message: &quot;请输入密码查看本文。&quot;</span><br><span class="line">  # 可以在这里设定特定标签对应的默认密码</span><br><span class="line">  tags:</span><br><span class="line">    - [name: &quot;encryptAsSecret&quot;, password: &quot;yoursecret&quot;]</span><br><span class="line">  # 错误消息设置</span><br><span class="line">  wrong_pass_message: &quot;密码错误，请重试。&quot;</span><br><span class="line">  wrong_hash_message: &quot;内容认证失败，但仍可尝试查看。&quot;</span><br><span class="line">  # 是否禁用日志记录</span><br><span class="line">  silent: false</span><br></pre></td></tr></table></figure>
+<p>使用时需要在需要加密文章的头部banner中添加以下东西：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">title: ###</span><br><span class="line">date: XXXX-XX-XX XX:XX:XX</span><br><span class="line">password: mima 如果设为&quot;&quot;则为空</span><br><span class="line">abstract: 这里有东西被加密了，需要输入密码查看哦。</span><br><span class="line">message: 您好，这里需要密码。</span><br><span class="line">wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。</span><br><span class="line">wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
-          
-          <category> 技术杂谈 </category>
-          
-          <category> HEXO </category>
-          
+        <category>技术杂谈</category>
+        <category>HEXO</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> HEXO </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>大盘鸡</title>
-      <link href="/posts/20260203130439-31255.html"/>
-      <url>/posts/20260203130439-31255.html</url>
-      
-        <content type="html"><![CDATA[ <img src="https://pic1.imgdb.cn/item/69ee37bcf12344047bf64993.jpg" width = "600" height = "380" alt="大盘鸡" align=center /><span id="more"></span><h2 id="准备"><a class="markdownIt-Anchor" href="#准备"></a> 准备</h2><p>食材：两斤鸡腿肉（正宗新疆大盘鸡是柴鸡）<br />蔬菜：2块土豆，一条长尖椒，2块青椒，一根红萝卜，三分一个紫洋葱，大葱姜蒜。<br />调料：豆瓣酱（忌辣就用原味酱，不忌就用郫县豆瓣酱），生抽，老抽，陈醋，子弹头干辣椒。八角，花椒，白芷，香叶，桂皮</p><h2 id="制作"><a class="markdownIt-Anchor" href="#制作"></a> 制作</h2><p>1，切好的鸡肉，直接用凉水淘洗，直到水变清澈。洗好后将肉控水，用厨房纸吸水，把肉吸干。</p><p>2，切2块大葱，拍四五个大蒜瓣，切两片姜片。<br />勾兑调料，两勺酱，一勺陈醋，一勺生抽，半勺老抽。<br />准备香料，2个八角，十几粒花椒，三四片香叶，2小片白芷，指甲盖大小桂皮，剪两三块干辣椒。</p><p>3，炒糖色，不断搅动炒至发红，倒入沥干水的鸡肉，不断翻搅，炒干水分，炒到肉开始发皱，表皮微黄，倒入大葱姜蒜，把葱炒至发软，倒入准备好的香料和调料。</p><p>4，炒到闻见豆瓣酱的香味，倒入开水，没过鸡块。</p><p>5，把土豆，红萝卜，青椒，尖椒，洋葱切滚刀块备用</p><p>6，煮个10分钟，加两勺盐，加味精，倒入土豆和红萝卜，盖盖子焖煮。</p><p>7，再煮个15到20分钟，倒入青椒尖椒和洋葱，开盖煮，煮软为止，并且把汤汁收一收。可以尝尝咸淡，汤略咸比较好。</p><p>8，出锅，出锅后可以加点芝麻。</p>]]></content>
-      
-      
+      <tags>
+        <tag>HEXO</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大盘鸡</title>
+    <url>/posts/20260203130439-31255.html</url>
+    <content><![CDATA[ <img src="https://pic1.imgdb.cn/item/69ee37bcf12344047bf64993.jpg" width = "600" height = "380" alt="大盘鸡" align=center />
+<span id="more"></span>
+<h2 id="准备"><a class="markdownIt-Anchor" href="#准备"></a> 准备</h2>
+<p>食材：两斤鸡腿肉（正宗新疆大盘鸡是柴鸡）<br />
+蔬菜：2块土豆，一条长尖椒，2块青椒，一根红萝卜，三分一个紫洋葱，大葱姜蒜。<br />
+调料：豆瓣酱（忌辣就用原味酱，不忌就用郫县豆瓣酱），生抽，老抽，陈醋，子弹头干辣椒。八角，花椒，白芷，香叶，桂皮</p>
+<h2 id="制作"><a class="markdownIt-Anchor" href="#制作"></a> 制作</h2>
+<p>1，切好的鸡肉，直接用凉水淘洗，直到水变清澈。洗好后将肉控水，用厨房纸吸水，把肉吸干。</p>
+<p>2，切2块大葱，拍四五个大蒜瓣，切两片姜片。<br />
+勾兑调料，两勺酱，一勺陈醋，一勺生抽，半勺老抽。<br />
+准备香料，2个八角，十几粒花椒，三四片香叶，2小片白芷，指甲盖大小桂皮，剪两三块干辣椒。</p>
+<p>3，炒糖色，不断搅动炒至发红，倒入沥干水的鸡肉，不断翻搅，炒干水分，炒到肉开始发皱，表皮微黄，倒入大葱姜蒜，把葱炒至发软，倒入准备好的香料和调料。</p>
+<p>4，炒到闻见豆瓣酱的香味，倒入开水，没过鸡块。</p>
+<p>5，把土豆，红萝卜，青椒，尖椒，洋葱切滚刀块备用</p>
+<p>6，煮个10分钟，加两勺盐，加味精，倒入土豆和红萝卜，盖盖子焖煮。</p>
+<p>7，再煮个15到20分钟，倒入青椒尖椒和洋葱，开盖煮，煮软为止，并且把汤汁收一收。可以尝尝咸淡，汤略咸比较好。</p>
+<p>8，出锅，出锅后可以加点芝麻。</p>
+]]></content>
       <categories>
-          
-          <category> 人间烟火 </category>
-          
-          <category> 炖菜 </category>
-          
+        <category>人间烟火</category>
+        <category>炖菜</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 炖菜 </tag>
-            
-            <tag> 做饭 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>炖菜</tag>
+        <tag>做饭</tag>
+      </tags>
+  </entry>
 </search>
